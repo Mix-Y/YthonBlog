@@ -1,0 +1,11 @@
+{
+    "//": "以下为网站域名 格式:http://xxxxxxxx.xxx/",
+    "DName": "http://127.0.0.1:8000/",
+
+    "//": "以下为发送邮件的配置参数 senderName发送人 youEamil邮箱账号 emailPwd邮箱授权码 mailHost邮箱服务器 hostPort邮箱端口",
+    "senderName": "3150718511@qq.com",
+    "youEamil": "3150718511@qq.com",
+    "emailPwd": "agyidaybqgfuddbg",
+    "mailHost": "smtp.qq.com",
+    "hostPort": "465"
+}
