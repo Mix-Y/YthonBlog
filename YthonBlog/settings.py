@@ -20,7 +20,6 @@ SITE_TLD = ''  # 网站域名
 CN_GOV_RECORD = False  # 网站备案
 CN_GOV_RECORD_DATA = ''  # 网站备案信息
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -53,19 +52,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
+    # apps
+
     # The following apps are required:
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     # ... include the providers you want to enable:
+    'blog',
+
 ]
 
 # 当出现 "SocialApp matching query does not exist" 这种报错的时候就需要更换这个ID
 SITE_ID = 1
 
 # 设置登录和注册成功后重定向的页面，默认是 "/accounts/profile/"
-LOGIN_REDIRECT_URL = "/accounts/logout/"
+LOGIN_REDIRECT_URL = "/"
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3  # 邮箱确认邮件的截止日期(天数)
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5  # 登录尝试失败的次数
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 20  # 从上次失败的登录尝试，用户被禁止尝试登录的持续时间
@@ -162,3 +165,8 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# 配置 MEDIA_ROOT 作为你上传文件在服务器中的基本路径
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static')  # 注意此处不要写成列表或元组的形式
+# 配置 MEDIA_URL 作为公用 URL，指向上传文件的基本路径
+# 这里特意写成 upload 和 media，而不是统一写成 media 或 upload，是为了便于理解 MEDIA_ROOT 和 MEDIA_URL 的作用和区别

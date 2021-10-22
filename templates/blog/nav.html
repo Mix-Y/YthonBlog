@@ -1,0 +1,39 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="navimage">
+        <div style="width: 100%;height: 100%;">
+        <img class="navbackimage" src="/static/{{PageData.image}}" style="width: 100%;height: 100%;z-index: 10;object-fit: cover;"></div>
+        <div class="navimages">
+            <p class="navimagesfont"><b>{{PageData.name}}</b></p>
+            <p class="navimagesfont2">{{PageData.describe}}</p>
+        </div>
+    </div>
+    <div class="newArticle">
+        <div class="articleBox">
+            <div class="articles">
+                {% for article in articles %}
+                <div class="article">
+                    <a href="">
+                        <div class="articleimg">
+                            <img src="" alt="" style="width: 100%;height: 100%;">
+                        </div>
+                        <div class="articlefont">
+                            <p style="color: rgb(75, 75, 75);font-size: 13px;">{{article.parent}}</p>
+                            <p style="color: rgb(75, 75, 75);font-size: 18px;margin-top:7%;margin-bottom: 7%;"><b>{{article.title}}</b></p>
+                            <div class="articleline"></div>
+                            <div class="articletime">
+                                <embed src="/static/svg/clock.svg" width="15" height="15" type="image/svg+xml" />
+                                <h style="font-size: 10px;color: rgb(105, 105, 105);margin-left: 5px;">{{article.time}}</h>
+                                <h style="font-size: 10px;color: rgb(105, 105, 105);margin-left: 5px;">by</h>
+                                <h style="font-size: 10px;color: rgb(105, 105, 105);margin-left: 5px;">{{article.writer}}</h>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            <a href=""><div class="moreArticle">更多</div></a>
+        </div>
+    </div>
+{% endblock %}

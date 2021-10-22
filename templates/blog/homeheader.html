@@ -1,0 +1,93 @@
+<header>
+    <div class="header">
+
+        <div class="logo">
+            <embed src="/static/svg/logo.svg" width="50" height="50" type="image/svg+xml"  style="margin-top:7px;"/>
+        </div>
+
+        <div class="navs">
+                <div class="navbox"><a href="/" class="navfont">首页</a></div>
+                <ul class="nav1">
+                    {% for nav in navs %}
+                    {% if nav.TreeSum == 0 %}
+                    <div class="navbox"><a href="/navs/?page={{nav.name}}&level=0" class="navfont">{{nav.name}}</a></div>
+                    {% elif nav.TreeSum > 0 %}
+                    <li>
+                    <div class="navbox"><a href="#" class="navfont">{{nav.name}}</a></div>
+                        <ul class="nav2">
+                            {% for lownav in lownavs %}
+                            {% if lownav.Section == nav %}
+                            <li class="nav2li"><a href="/navs/?page={{lownav.name}}&level=1" class="nav2f">{{lownav.name}}</a></li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    </ul>
+        </div>
+
+        <div class="search">
+            <a href=""><img src="/static/image/search2.png" alt="" width="30" height="30" style="margin-top:15px;margin-left: 40px;" ></a>
+            <a href="/accounts/login/"><img src="/static/image/loginico2.png" alt="" width="25" height="25" style="margin-top:15px;margin-left: 40px;"></a>
+        </div>
+    </div>
+
+
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img src="/static/image/ppt/ppt1.jpg" class="image">
+          <div class="slideshowtext">
+            <a href="" style="color: rgb(255, 255, 255);"><b>Movie 《Interstellar》</b>
+            <div class="slideshowbuttom">阅读文章</div></a>
+          </div>
+        </div>
+       
+        <div class="mySlides fade">
+            <img src="/static/image/ppt/ppt2.jpg" class="image">
+          <div class="slideshowtext">
+            <a href="" style="color: rgb(255, 255, 255);"><b>Movie 《Interstellar》</b>
+            <div class="slideshowbuttom">阅读文章</div></a>
+          </div>
+        </div>
+       
+        <div class="mySlides fade">
+            <img src="/static/image/ppt/ppt3.jpg" class="image">
+          <div class="slideshowtext">
+            <a href="" style="color: rgb(255, 255, 255);"><b>Movie 《Interstellar》</b>
+            <div class="slideshowbuttom">阅读文章</div></a>
+          </div>
+        </div>
+       
+
+    </div>
+       
+    <div style="text-align:center" class="dotbox">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 10000); // 切换时间为 2 秒
+        }
+    </script>
+</header>

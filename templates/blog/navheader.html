@@ -1,0 +1,34 @@
+<header>
+    <div class="headertwo">
+        <div class="logo">
+            <embed src="/static/svg/logo.svg" width="50" height="50" type="image/svg+xml"  style="margin-top:7px;"/>
+        </div>
+
+        <div class="navs">
+                <div class="navbox"><a href="/" class="navfont2">首页</a></div>
+                <ul class="nav1">
+                    {% for nav in navs %}
+                    {% if nav.TreeSum == 0 %}
+                    <div class="navbox"><a href="/navs/?page={{nav.name}}&level=0" class="navfont2">{{nav.name}}</a></div>
+                    {% elif nav.TreeSum > 0 %}
+                    <li>
+                    <div class="navbox"><a href="#" class="navfont2">{{nav.name}}</a></div>
+                        <ul class="nav2">
+                            {% for lownav in lownavs %}
+                            {% if lownav.Section == nav %}
+                            <li class="nav2li"><a href="/navs/?page={{lownav.name}}&level=1" class="nav2f">{{lownav.name}}</a></li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    </ul>
+        </div>
+
+        <div class="search">
+            <a href=""><img src="/static/image/search1.png" alt="" width="30" height="30" style="margin-top:15px;margin-left: 40px;" ></a>
+            <a href="/accounts/login/"><img src="/static/image/loginico1.png" alt="" width="25" height="25" style="margin-top:15px;margin-left: 40px;"></a>
+        </div>
+    </div>
+</header>

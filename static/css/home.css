@@ -1,0 +1,374 @@
+*{
+    margin:0;
+    padding:0;
+}
+html,body{
+    width:100%;
+    height:100%;
+    font-family:"黑体";
+}
+header{
+    font-family:"黑体";
+}
+.header{
+    height:65px;
+    width: 100%;
+    border-bottom:1px solid rgba(255, 255, 255, 0.20);
+    display: flex;
+    position:absolute;
+    background-color:rgba(255, 255, 255, 0.050);
+    z-index:999
+}
+.headertwo{
+    height:65px;
+    width: 100%;
+    display: flex;
+    background-color:rgb(245, 245, 245);
+    box-shadow: 0px 5px 10px #88888859;
+    z-index: 990;
+    position: absolute;
+}
+.logo{
+    margin-left: 20%;
+    width: 10%;
+    height: 100%;
+}
+.navs{
+    width: 45%;
+    height: 100%;
+    display: flex;
+}
+.search{
+    width: 10%;
+    height: 100%;
+    border-left:1px solid rgba(255, 255, 255, 0.20);
+}
+.image{
+    width: 100%;
+    height: 1000px;
+    z-index: -1;
+
+}
+.enterBlog{
+    margin-top: -10px;
+    width: 100%;
+    height: 20%;
+    background-color:rgb(65, 68, 77);
+}
+.newArticle{
+    width: 100%;
+    height: 150%;
+    background-color:rgb(238, 238, 240);
+}
+.timeMessage{
+    width: 100%;
+    height: 80%;
+    background-color:rgb(232, 231, 233);
+}
+.bottomNavs{
+    width: 100%;
+    height: 50%;
+    background-color:rgb(39, 39, 39);
+    
+}
+.bottomInformation{
+    width: 100%;
+    height: 10%;
+    background-color:rgb(32, 32, 32);
+}
+.navbox{
+    height: auto;
+    font-size: 15px;
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+    margin-right: 50px;
+}
+li{
+    list-style: none;
+}
+.navfont{
+    text-decoration:none;
+    color: rgb(255, 255, 255);
+    
+}
+a{
+    text-decoration:none;
+}
+.enterBlogbox{
+    width: 25%;
+    margin: auto;
+    text-align: center;
+    padding-top: 75px;
+    display: flex;
+}
+.enterBlogfont{
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+}
+.enterBlogbox2{
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    border:1px solid rgb(255, 255, 255);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 25px;
+    margin-left: 50px;
+}
+.articleBox{
+    width: 65%;
+    height: 100%;
+    margin: auto;
+    padding-top: 3%;
+}
+.articles{
+    width: 100%;
+    height: 65%;
+}
+.article{
+    width: 30%;
+    height: 40%;
+    background-color: rgb(255, 255, 255);
+    float: left;
+    margin: 1.6%;
+}
+.articleimg{
+    width: 100%;
+    height: 50%;
+    background-color: rgb(175, 175, 175);
+}
+.articlefont{
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 7%;
+}
+.articleline{
+    width: 100%;
+    height: 1px;
+    border-bottom:1px solid rgba(0, 0, 0, 0.2);
+}
+.articletime{
+    float: left;
+    width: 100%;
+    margin-top: 7%;
+}
+.moreArticle{
+    margin-left: 45%;
+    width: 8%;
+    height: 3%;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    background-color:rgb(44, 83, 199);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 25px;
+    text-align: center;
+    margin-top: 3%;
+}
+.timebox{
+    padding-top: 3%;
+    width: 100%;
+    height: 100%;
+}
+.timemess{
+    width: 50%;
+    height: 50%;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+.navsBox{
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+    height: 80%;
+    padding-top: 3%;
+    display: flex;
+}
+.navAbout{
+    width: 23%;
+    height: 80%;
+    padding: 1%;
+}
+.navMess{
+    padding: 1%;
+    width: 40%;
+    height: 80%;
+    margin-left: 1%;
+
+}
+.navSearch{
+    padding: 1%;
+    width: 35%;
+    height: 80%;
+
+    margin-left: 1%;
+}
+.navAboutStr{
+    color: rgb(209, 209, 209);
+    line-height: 25px;
+    margin-top: 10%;
+    margin-bottom: 15%;
+}
+.navAboutButton{
+    color: rgb(151, 149, 149);
+    font-size: 15px;
+    margin-top: 5px;
+}
+.mess{
+    width: 100%;
+    height: 70%;
+    border:2px solid rgba(255, 255, 255, 0.2);
+}
+.wirteMess{
+    width: 25%;
+    height: 15%;
+    font-size: 17px;
+    color: rgb(255, 255, 255);
+    border-radius: 25px;
+    border:2px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    padding-top: 1%;
+    margin-top: 5%;
+}
+.navSearchBox{
+    width: 100%;
+    height: 18%;
+    background-color: violet;
+    border-radius: 50px;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    display: flex;
+}
+.navSearchBoxText{
+    font-size: 16px;
+    color: rgb(124, 124, 124);
+    padding-left: 30px;
+    width: 65%;
+    height: 100%;
+    background-color: white;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    outline-style: none ;
+    border: 0px;
+}
+.navSearchBoxSub{
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    width: 35%;
+    height: 100%;
+    background-color: rgb(64, 94, 192);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border: 0px;
+}
+.bottomInformationbox{
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+    height: auto;
+    display: flex;
+}
+.nformation{
+    color: rgb(160, 160, 160);
+    font-size: 13px;
+    text-align: center;
+    margin-top: 3%;
+}
+.navimage{
+    width: 100%;
+    height: 60%;
+    box-shadow: 0px 0px 10px 100px rgba(0, 0, 0, 0.712) inset;
+}
+.navimages{
+    width: 100%;
+    position: absolute;
+}
+.navimagesfont{
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: -18%;
+}
+.navimagesfont2{
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 3%;
+}
+
+.nav1{
+    display: flex;
+}
+
+
+.nav1 li:hover .nav2{
+    display: block;        
+    z-index: 990;   
+}
+
+.nav1 li .nav2{
+    display: none;
+    position: absolute;
+    margin-top: 25px;
+    width: 250px;   
+    background-color: rgb(43, 43, 43);
+    font-size: 15px;
+    z-index: 990;
+}
+.nav2f{
+    color: rgb(156, 156, 156);
+}
+.nav2li{
+    margin-left: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.navfont:hover{
+    color: rgb(148, 148, 148);
+}
+.nav2f:hover{
+    color: rgb(219, 219, 219);
+}
+.navfont2{
+    color: #000000;
+}
+.navfont2:hover{
+    color: rgb(116, 116, 116);
+}
+@-webkit-keyframes blur {
+    0% {
+        -webkit-filter: blur(15px); /* Chrome, Opera */
+        -moz-filter: blur(15px);
+        -ms-filter: blur(15px);
+        filter: blur(15px);
+    }
+    50% {
+        -webkit-filter: blur(0px);
+        -moz-filter: blur(0px);
+        -ms-filter: blur(0px);
+        filter: blur(0px);
+    }
+    100% {
+        -webkit-filter: blur(15px); /* Chrome, Opera */
+        -moz-filter: blur(15px);
+        -ms-filter: blur(15px);
+        filter: blur(15px);
+    }
+}
+.navbackimage{
+    filter: blur(15px)
+}
+.navimage:hover .navbackimage{
+    -webkit-animation-name: blur; /*动画名称*/
+    -webkit-animation-duration: 4s; /*动画持续时间*/
+    -webkit-animation-iteration-count: 1; /*动画次数*/
+    -webkit-animation-delay: 0.5s; /*延迟时间*/
+}
+
+
+
