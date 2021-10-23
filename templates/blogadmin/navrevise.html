@@ -1,0 +1,49 @@
+{% extends 'blogadmin/base.html' %}
+{% block content %}
+<div class="adminbody">
+    <p class="admintitle">版块 / 版块管理 / 修改</p>
+    <div class="adminline"></div>
+    <div class="adminbodybox">
+        <div class="adminl">
+
+
+
+
+
+            <form action="/admin/navset/revise/" method="POST" enctype="multipart/form-data">
+                <p class="admintitles"><b>修改版块</b></p>
+                <div class="admininputbox">
+                    <input type="text" class="textbox" style="height: 40px;" name="navname" placeholder="版块名称" value="{{data.name}}">
+                    <div class="textboxdata">
+                        <p>版块名称,切勿与二级版块重名，因为我也不知道会发生什么。</p>
+                    </div>
+                </div>
+                <div class="admininputbox">
+                    <input type="text" class="textbox" style="height: 40px;" name="navdesc" placeholder="版块描述" value="{{data.describe}}">
+                    <div class="textboxdata">
+                        <p>描述版块,用于在版块页面显示。</p>
+                    </div>
+                </div>
+                <div class="admininputbox">
+                    <input type="file" class="textbox" style="height: 40px;" name="navimg" value="{{data.image}}">
+                    <div class="textboxdata">
+                        <p>描述版块,用于在版块页面显示。</p>
+                    </div>
+                </div>
+                <input type="text"style="display: none;" name="pk" value="{{data.pk}}">
+                <input type="text"style="display: none;" name="method" value="{{method}}">
+                <input type="submit" class="adminsubmit2" value="提交">
+                </form>
+
+
+
+
+            <div class="adminline"></div>
+        </div>
+        <div class="adminr">
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -56,6 +56,16 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.textbox2{
+    width: 52%;
+    border-radius: 5px;
+    border: 1px solid rgb(112, 112, 112);
+    padding-left: 2%;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+}
 .textboxdata{
     width: 44%;
     padding-left: 2%;
@@ -80,6 +90,17 @@
     margin-bottom: 10%;
     color: #ffffff;
 }
+.adminsubmit2{
+    width: 20%;
+    height: 40px;
+    margin-left: 40%;
+    margin-top: 5%;
+    background-color: rgb(61, 102, 190);
+    border: 0px;
+    border-radius: 5px;
+    margin-bottom: 5%;
+    color: #ffffff;
+}
 .admininputbox2{
     width: 52%;
     padding-top: 20px;
@@ -93,4 +114,17 @@
     margin-right: 40px;
     margin-left: 10px;
     color: rgb(83, 83, 83);
+}
+.adminnavstree{
+    width: 100%;
+    height: auto;
+    padding: 30px;
+    border: 1px solid rgba(112, 112, 112, 0.507);
+    background-color: rgb(245, 245, 245);
+    font-size: 20px;
+}
+.adminnavsb{
+    margin-left: 15px;
+    font-size: 15px;
+    color: rgb(17, 0, 255);
 }

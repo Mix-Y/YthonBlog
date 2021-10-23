@@ -41,3 +41,4 @@ class Remark(models.Model):
     time = models.CharField(max_length=1000, verbose_name='time')
     body = models.CharField(max_length=60000, verbose_name='body')
     parent = models.CharField(max_length=255, verbose_name='parent')
+

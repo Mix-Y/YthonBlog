@@ -170,7 +170,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+MEDIA_URL = '/upload/'
 # 配置 MEDIA_ROOT 作为你上传文件在服务器中的基本路径
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static')  # 注意此处不要写成列表或元组的形式
 # 配置 MEDIA_URL 作为公用 URL，指向上传文件的基本路径

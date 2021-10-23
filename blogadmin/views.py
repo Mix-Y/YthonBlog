@@ -4,10 +4,10 @@ from django.contrib.auth.decorators import permission_required
 from django.http import HttpResponseRedirect
 from django.utils.datastructures import MultiValueDictKeyError
 
-from . import models
 from django.contrib.auth.models import ContentType, Permission
 import json
 import demjson
+from blog import models
 
 
 def getsetting(dic):
@@ -41,7 +41,7 @@ def truefalse(StrData):
 @permission_required('admin.add_logentry', login_url='/accounts/login/')
 def blogadmin(request):
     dic = {'title': '管理后台'}
-    return render(request, 'blogadmin/home.html',dic)
+    return render(request, 'blogadmin/home.html', dic)
 
 
 @permission_required('admin.add_logentry', login_url='/accounts/login/')
@@ -73,7 +73,7 @@ def adminEmailSet(request):
         dic['mailHost'] = request.POST['mailHost']
         dic['hostPort'] = int(request.POST['hostPort'])
         writeSet(dic)
-    return render(request, 'blogadmin/emailset.html',dic)
+    return render(request, 'blogadmin/emailset.html', dic)
 
 
 @permission_required('admin.add_logentry', login_url='/accounts/login/')
@@ -95,3 +95,56 @@ def adminLoginSet(request):
         dic['LOGIN_ATTEMPTS_TIMEOUT'] = int(request.POST['LOGIN_ATTEMPTS_TIMEOUT'])
         writeSet(dic)
     return render(request, 'blogadmin/loginset.html', dic)
+
+
+@permission_required('admin.add_logentry', login_url='/accounts/login/')
+def adminNavSet(request):
+    dic = {'title': '版块管理', 'navs': models.Section.objects.all(), 'lownavs': models.SectionTree.objects.all()}
+    getsetting(dic)
+    if request.method == 'POST':
+
+        img = request.FILES.get('navimg')
+        name = request.POST['navname']
+        desc = request.POST['navdesc']
+        key = request.POST['key']
+        if key != "0":
+            pid = models.Section.objects.get(name=key)
+            num = pid.TreeSum + 1
+            models.SectionTree.objects.create(name=name, Section=pid, describe=desc, image=img)
+            models.Section.objects.filter(name=key).update(TreeSum=num)
+        else:
+            models.Section.objects.create(name=name, TreeSum=0, describe=desc, image=img)
+    return render(request, 'blogadmin/navset.html', dic)
+
+
+@permission_required('admin.add_logentry', login_url='/accounts/login/')
+def adminNavRevise(request):
+    dic = {'title': '版块修改'}
+    getsetting(dic)
+    if request.method == 'POST':
+        img = request.FILES.get('navimg')
+        navname = request.POST['navname']
+        desc = request.POST['navdesc']
+        name = request.POST['pk']
+        if request.POST['method'] == '1':
+            models.Section.objects.filter(id=name).update(name=navname, describe=desc, image=img)
+        elif request.POST['method'] == '4':
+            models.SectionTree.objects.filter(id=name).update(name=navname, describe=desc, image=img)
+        return HttpResponseRedirect('/admin/navset/')
+    if request.method == 'GET':
+        name = int(request.GET['name'])
+        method = request.GET['method']
+        if method == '3':
+            models.Section.objects.filter(id=name).delete()
+            return HttpResponseRedirect('/admin/navset/')
+        elif method == '2':
+            models.SectionTree.objects.filter(id=name).delete()
+            return HttpResponseRedirect('/admin/navset/')
+        elif method == '1':
+            dic['data'] = models.Section.objects.get(id=name)
+            dic['method'] = '1'
+            return render(request, 'blogadmin/navrevise.html', dic)
+        elif method == '4':
+            dic['method'] = '4'
+            dic['data'] = models.SectionTree.objects.get(id=name)
+            return render(request, 'blogadmin/navrevise.html', dic)
