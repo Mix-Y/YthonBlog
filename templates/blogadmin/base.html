@@ -1,5 +1,5 @@
 {% load static %}
-
+<!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -10,30 +10,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!--====== Title ======-->
-    {% if page == 'home' %}
-    <title>{{SITE_NAME}}</title>
-    {% elif page != 'home'%}
     <title>{{title}} - {{SITE_NAME}}</title>
-    {% endif %}
     <!--====== Favicon ======-->
     <link rel="shortcut icon" href="/static/images/ico.ico" type="images/x-icon" />
 
     <!--====== CSS Here ======-->
     <link rel="stylesheet" href="/static/css/home.css">
-    <link rel="stylesheet" href="/static/css/slideshow.css">
+    <link rel="stylesheet" href="/static/css/admin.css">
 
     <!--====== CSS Here ======-->
 
 </head>
-{% if page == 'home' %}
     {% block header %}
-        {% include 'blog/homeheader.html' %}
+        {% include 'blogadmin/header.html' %}
     {% endblock %}  
-{% elif page == 'navs' %}
-    {% block headertwo %}
-        {% include 'blog/navheader.html' %}
-    {% endblock %}  
-{% endif %}
 <body onmousewheel="bbimg()">
     {% block content %}
 
@@ -41,7 +31,7 @@
 
 
     {% block bottom %}
-        {% include 'blog/bottom.html' %}
+        {% include 'blogadmin/bottom.html' %}
     {% endblock %}
 
 </body>

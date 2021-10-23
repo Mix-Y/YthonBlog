@@ -1,11 +1,1 @@
-{
-    "//": "以下为网站域名 格式:http://xxxxxxxx.xxx/",
-    "DName": "http://127.0.0.1:8000/",
-
-    "//": "以下为发送邮件的配置参数 senderName发送人 youEamil邮箱账号 emailPwd邮箱授权码 mailHost邮箱服务器 hostPort邮箱端口",
-    "senderName": "3150718511@qq.com",
-    "youEamil": "3150718511@qq.com",
-    "emailPwd": "agyidaybqgfuddbg",
-    "mailHost": "smtp.qq.com",
-    "hostPort": "465"
-}
+{"title": "\u7f51\u7ad9\u4fe1\u606f", "SITE_NAME": "Ython \u963f\u6768\u7684\u535a\u5ba2", "SITE_DESC": "Ython\u7684\u535a\u5ba2\uff0c\u8d4b\u4e88\u751f\u547d\u4ee5\u65f6\u95f4\u3002", "DName": "http://127.0.0.1:8000/", "CN_GOV_RECORD": true, "CN_GOV_RECORD_DATA": "\u8700ICP\u59072021022356\u53f7-1", "senderName": "3150718511@qq.com", "youEamil": "3150718511@qq.com", "emailPwd": "agyidaybqgfuddbg", "mailHost": "smtp.qq.com", "hostPort": 25, "LOGOUT_ON_GET": false, "EMAIL_REQUIRED": true, "EMAIL_VERIFICATION": "mandatory", "LOGIN_ATTEMPTS_TIMEOUT": 500, "LOGIN_ATTEMPTS_LIMIT": 5, "EMAIL_CONFIRMATION_EXPIRE_DAYS": 1}

@@ -3,7 +3,7 @@
     <div class="navsBox">
         <div class="navAbout">
             <embed src="/static/svg/logo.svg" width="50" height="50" type="image/svg+xml"  style="margin-top:7px;"/>
-            <p class="navAboutStr">YThon 的博客，记录生活，技术交流，诗词歌赋，画作赏析。</p>
+            <p class="navAboutStr">{{SITE_DESC}}</p>
             <a href=""><p class="navAboutButton">隐私政策</p></a>
             <a href=""><p class="navAboutButton">赞助鸣谢</p></a>
             <a href=""><p class="navAboutButton">技术交流</p></a>
@@ -21,7 +21,7 @@
             <p style="font-size: 20px;color: rgb(255, 255, 255);"><b>搜索</b></p>
             <p style="color: #e6e6e6;margin-top: 5%;margin-bottom: 3%;">在整个站点搜索你所需的内容。</p>
             <div class="navSearchBox">
-                <input type="text" class="navSearchBoxText" value="输入关键词">
+                <input type="text" class="navSearchBoxText" placeholder="输入关键词">
                 <input type="submit" class="navSearchBoxSub">
             </div>
             <p style="font-size: 20px;color: rgb(255, 255, 255);"><b>联系我</b></p>
@@ -31,6 +31,6 @@
 
 <div class="bottomInformation">
     <div class="bottomInformationbox">
-        <p class="nformation">Copyright © 2021 ython.top All Rights Reserved. Powered By Django. 蜀ICP备2021022356号-1</p>
+        <p class="nformation">Copyright © 2021 ython.top All Rights Reserved. Powered By Django. {{CN_GOV_RECORD_DATA}}</p>
     </div>
 </div>

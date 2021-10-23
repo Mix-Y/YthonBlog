@@ -12,13 +12,18 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import json
 
+f = open('static/setting/setting.json', 'r')
+data = f.read()
+data = json.loads(data)
+f.close()
 # 网站信息 Website information
-SITE_NAME = ''  # 网站名称
-SITE_DESC = ''  # 网站描述
-SITE_TLD = ''  # 网站域名
-CN_GOV_RECORD = False  # 网站备案
-CN_GOV_RECORD_DATA = ''  # 网站备案信息
+SITE_NAME = data['SITE_NAME']  # 网站名称
+SITE_DESC = data['SITE_DESC']  # 网站描述
+SITE_TLD = data['DName']  # 网站域名
+CN_GOV_RECORD = data['CN_GOV_RECORD']  # 网站备案
+CN_GOV_RECORD_DATA = data['CN_GOV_RECORD_DATA']  # 网站备案信息
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -61,6 +66,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # ... include the providers you want to enable:
     'blog',
+    'blogadmin',
 
 ]
 
@@ -69,21 +75,20 @@ SITE_ID = 1
 
 # 设置登录和注册成功后重定向的页面，默认是 "/accounts/profile/"
 LOGIN_REDIRECT_URL = "/"
-ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3  # 邮箱确认邮件的截止日期(天数)
-ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5  # 登录尝试失败的次数
-ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 20  # 从上次失败的登录尝试，用户被禁止尝试登录的持续时间
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # 强制注册邮箱验证(注册成功后，会发送一封验证邮件，用户必须验证邮箱后，才能登陆)
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = data['EMAIL_CONFIRMATION_EXPIRE_DAYS']  # 邮箱确认邮件的截止日期(天数)
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = data['LOGIN_ATTEMPTS_LIMIT']  # 登录尝试失败的次数
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = data['LOGIN_ATTEMPTS_TIMEOUT']  # 从上次失败的登录尝试，用户被禁止尝试登录的持续时间
+ACCOUNT_EMAIL_VERIFICATION = data['EMAIL_VERIFICATION']  # 强制注册邮箱验证(注册成功后，会发送一封验证邮件，用户必须验证邮箱后，才能登陆)
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"  # 登录方式(选择用户名或者邮箱都能登录)
-ACCOUNT_EMAIL_REQUIRED = True  # 设置用户注册的时候必须填写邮箱地址
-ACCOUNT_LOGOUT_ON_GET = False  # 用户登出(需要确认)
-EMAIL_HOST = 'smtp.qq.com'
-EMAIL_PORT = 25
-EMAIL_HOST_USER = '3150718511@qq.com'  # 你的 QQ 账号和授权码
-EMAIL_HOST_PASSWORD = 'agyidaybqgfuddbg'
+ACCOUNT_EMAIL_REQUIRED = data['EMAIL_REQUIRED']  # 设置用户注册的时候必须填写邮箱地址
+ACCOUNT_LOGOUT_ON_GET = data['LOGOUT_ON_GET']  # 用户登出(需要确认)
+EMAIL_HOST = data['mailHost']
+EMAIL_PORT = data['hostPort']
+EMAIL_HOST_USER = data['youEamil']  # 你的 QQ 账号和授权码
+EMAIL_HOST_PASSWORD = data['emailPwd']
 EMAIL_USE_TLS = True  # 这里必须是 True，否则发送不成功
-EMAIL_FROM = 'x3150718511@qq.com'  # 你的 QQ 账号
-DEFAULT_FROM_EMAIL = '3150718511@qq.com'
-
+EMAIL_FROM = data['senderName']  # 你的 QQ 账号
+DEFAULT_FROM_EMAIL = data['senderName']
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

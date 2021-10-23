@@ -1,0 +1,72 @@
+{% extends 'blogadmin/base.html' %}
+{% block content %}
+<div class="adminbody">
+    <p class="admintitle">网站 / 用户设置</p>
+    <div class="adminline"></div>
+    <div class="adminbodybox">
+        <div class="adminl">
+            <form class="login" method="POST" action="/admin/loginset/">
+            <p class="admintitles"><b>开放注册</b></p>
+            <div class="admininputbox">
+                <input type="checkbox" class="checkbox" style="height: 40px;" >
+                <div class="textboxdata">
+                    <p>#未开放# 评论需登陆，开放注册才可以进行评论，默认：true</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>登出确认</b></p>
+            <div class="admininputbox">
+                <input type="checkbox" class="checkbox" style="height: 40px;" name="LOGOUT_ON_GET" value="true" {% if LOGOUT_ON_GET == True %}checked{% endif %}>
+                <div class="textboxdata">
+                    <p>用户登出(不需要确认)，默认：true</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>邮箱注册</b></p>
+            <div class="admininputbox">
+                <input type="checkbox" class="checkbox" style="height: 40px;" name="EMAIL_REQUIRED" value="true" {% if EMAIL_REQUIRED == True %}checked{% endif %}>
+                <div class="textboxdata">
+                    <p>设置用户注册的时候必须填写邮箱地址，默认：true</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>邮箱验证</b></p>
+            <div class="admininputbox">
+                <div class="admininputbox2">
+                    <input type="radio"  class="adminradio"  name="EMAIL_VERIFICATION" value="mandatory" {% if EMAIL_VERIFICATION == "mandatory" %}checked{% endif %}><h class="adminradiofont">强制(mandatory)</h>
+                    <input type="radio"  class="adminradio" name="EMAIL_VERIFICATION"  value="optional" {% if EMAIL_VERIFICATION == "optional" %}checked{% endif %}><h class="adminradiofont">可选(optional)</h>
+                    <input type="radio"  class="adminradio" name="EMAIL_VERIFICATION"  value="none" {% if EMAIL_VERIFICATION == "none" %}checked{% endif %}><h class="adminradiofont">否(none)</h>
+                </div>
+                <div class="textboxdata">
+                    <p>强制注册邮箱验证(注册成功后，会发送一封验证邮件，用户必须验证邮箱后，才能登陆)，默认：否(none)</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>确认时间</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" value="{{EMAIL_CONFIRMATION_EXPIRE_DAYS}}" name="EMAIL_CONFIRMATION_EXPIRE_DAYS">
+                <div class="textboxdata">
+                    <p>邮箱确认邮件的截止日期(天数)，默认：1</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>失败次数</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" value="{{LOGIN_ATTEMPTS_LIMIT}}" name="LOGIN_ATTEMPTS_LIMIT">
+                <div class="textboxdata">
+                    <p>登录尝试失败的次数，默认：5</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>禁止时间</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" value="{{LOGIN_ATTEMPTS_TIMEOUT}}" name="LOGIN_ATTEMPTS_TIMEOUT">
+                <div class="textboxdata">
+                    <p>从上次失败的登录尝试，用户被禁止尝试登录的持续时间，默认：500</p>
+                </div>
+            </div>
+            <input type="submit" class="adminsubmit" value="提交">
+            <div class="adminline"></div>
+        </form>
+        </div>
+        <div class="adminr">
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

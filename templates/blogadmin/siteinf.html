@@ -1,0 +1,62 @@
+{% extends 'blogadmin/base.html' %}
+{% block content %}
+<div class="adminbody">
+    <p class="admintitle">网站 / 网站信息</p>
+    <div class="adminline"></div>
+    <div class="adminbodybox">
+        <div class="adminl">
+            <form class="login" method="POST" action="/admin/siteinf/">
+            <p class="admintitles"><b>网站名称</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" name="sitename" value="{{SITE_NAME}}">
+                <div class="textboxdata">
+                    <p>网站名称，将在网页标题，底部导航栏等位置显示</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>网站描述</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 80px;"  value="{{SITE_DESC}}" name="sitedesc">
+                <div class="textboxdata">
+                    <p>将在底部导航栏显示</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>网站LOGO</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 80px;"  value="NULL">
+                <div class="textboxdata">
+                    <p>暂时仅支持SVG格式，后续会更新，请直接把SVG代码复制到此处</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>网站域名</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" value="{{DName}}" name="dname">
+                <div class="textboxdata">
+                    <p>例如：https://www.baidu.com/</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>开启备案</b></p>
+            <div class="admininputbox">
+                <input type="checkbox" class="checkbox" style="height: 40px;" value="true" name="record"  {% if CN_GOV_RECORD == True %}checked{% endif %}>
+                <div class="textboxdata">
+                    <p>大陆服务器需要备案，大陆域名需要实名，海外则可以关闭</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>备案信息</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" value="{{CN_GOV_RECORD_DATA}}" name="recordinf">
+                <div class="textboxdata">
+                    <p>例如：蜀ICP备2021123456号-1</p>
+                </div>
+            </div>
+            <input type="submit" class="adminsubmit" value="提交">
+            </form>
+            <div class="adminline"></div>
+
+        </div>
+        <div class="adminr">
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

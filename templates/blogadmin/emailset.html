@@ -1,0 +1,54 @@
+{% extends 'blogadmin/base.html' %}
+{% block content %}
+<div class="adminbody">
+    <p class="admintitle">网站 / 邮件设置</p>
+    <div class="adminline"></div>
+    <div class="adminbodybox">
+        <div class="adminl">
+            <form class="login" method="POST" action="/admin/emailset/">
+            <p class="admintitles"><b>发送人名称</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" name="senderName" value="{{senderName}}">
+                <div class="textboxdata">
+                    <p>例如：Ython</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>邮箱账号</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" name="youEamil" value="{{youEamil}}">
+                <div class="textboxdata">
+                    <p>例如：123456789@qq.com</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>邮箱授权码</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" name="emailPwd" value="{{emailPwd}}">
+                <div class="textboxdata">
+                    <p>并非邮箱密码，账号需要开启SMTP服务，后获取授权码。<br>qq邮箱教程:<br>https://service.mail.qq.com/cgi-bin/help?subtype=1&id=28&no=1001256<br>163邮箱教程:<br>http://help.163.com/09/1223/14/5R7P6CJ600753VB8.html</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>邮箱服务器</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" name="mailHost" value="{{mailHost}}">
+                <div class="textboxdata">
+                    <p>QQ邮箱：smtp.qq.com<br>163邮箱：smtp.163.com</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>邮箱端口</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" name="hostPort" value="{{hostPort}}">
+                <div class="textboxdata">
+                    <p>默认：25</p>
+                </div>
+            </div>
+            <input type="submit" class="adminsubmit" value="提交">
+            <div class="adminline"></div>
+        </form>
+        </div>
+        <div class="adminr">
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

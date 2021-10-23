@@ -1,0 +1,96 @@
+*{margin:0;padding:0}
+
+.adminbody{
+    width: 90%;
+    height: auto;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.171);
+    margin: auto;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.admintitle{
+    font-size: 15px;
+}
+.adminline{
+    width: 100%;
+    height: 1px;
+    border-bottom:1px solid rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.adminbodybox{
+    display: flex;
+    height: 100%;
+}
+.adminl{
+    width: 70%;
+    height: 100%;
+    margin-right: 5%;
+
+}
+.adminr{
+    width: 23%;
+    height: 90%;
+    border-left:1px solid rgba(0, 0, 0, 0.2);
+    padding-left: 2%;
+
+}
+.admintitles{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: rgb(48, 47, 47);
+}
+.admininputbox{
+    width: 100%;
+    display: flex;
+}
+.textbox{
+    width: 50%;
+    border-radius: 5px;
+    border: 1px solid rgb(112, 112, 112);
+    padding-left: 2%;
+    font-size: 20px;
+    color: rgb(119, 119, 119);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.textboxdata{
+    width: 44%;
+    padding-left: 2%;
+    padding-right: 2%;
+    color: rgb(122, 122, 122);
+    padding-top: 20px;
+}
+.checkbox{
+    width: 52%;
+
+    color: rgb(122, 122, 122);
+    padding-top: 20px;
+}
+.adminsubmit{
+    width: 20%;
+    height: 40px;
+    margin-left: 40%;
+    margin-top: 10%;
+    background-color: rgb(61, 102, 190);
+    border: 0px;
+    border-radius: 5px;
+    margin-bottom: 10%;
+    color: #ffffff;
+}
+.admininputbox2{
+    width: 52%;
+    padding-top: 20px;
+}
+.adminradio{
+    height: 20px;
+    width: 20px;
+}
+.adminradiofont{
+    font-size: 20px;
+    margin-right: 40px;
+    margin-left: 10px;
+    color: rgb(83, 83, 83);
+}

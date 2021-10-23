@@ -2,3 +2,4 @@ Django==3.2.8
 django-allauth==0.45.0
 django-widget-tweaks==1.4.8
 pillow==8.1.2
+Demjson==2.2.4
