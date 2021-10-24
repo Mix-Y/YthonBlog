@@ -1,0 +1,26 @@
+{% for sy in sys %}
+{% if sy.section == nav.id %}
+{% if sy.parent == parent %}
+
+
+<option value ="1000{{sy.id}}">
+{% if sy.level == 1 %}
+&emsp;└───
+{% elif sy.level == 2 %}
+&emsp;&emsp;&emsp;&emsp;└───
+{% elif sy.level == 3 %}
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└───
+{% elif sy.level == 4 %}
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└───
+{% endif %}
+{{sy.name}}</option>
+
+
+
+
+{% if last.id > sy.section %}
+{% include 'article/part.html' with parent=sy.id %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endfor %}

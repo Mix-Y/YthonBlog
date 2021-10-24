@@ -99,7 +99,7 @@ def adminLoginSet(request):
 
 @permission_required('admin.add_logentry', login_url='/accounts/login/')
 def adminNavSet(request):
-    dic = {'title': '版块管理', 'navs': models.Section.objects.all(), 'lownavs': models.SectionTree.objects.all()}
+    dic = {'title': '版块管理', 'navs': models.Section.objects.all()}
     getsetting(dic)
     if request.method == 'POST':
 
@@ -107,13 +107,11 @@ def adminNavSet(request):
         name = request.POST['navname']
         desc = request.POST['navdesc']
         key = request.POST['key']
-        if key != "0":
-            pid = models.Section.objects.get(name=key)
-            num = pid.TreeSum + 1
-            models.SectionTree.objects.create(name=name, Section=pid, describe=desc, image=img)
-            models.Section.objects.filter(name=key).update(TreeSum=num)
-        else:
-            models.Section.objects.create(name=name, TreeSum=0, describe=desc, image=img)
+        models.Section.objects.create(name=name, TreeSum=0, describe=desc, image=img, parent=key)
+        if key != 0:
+            f = models.Section.objects.get(id=key)
+            n = f.TreeSum + 1
+            models.Section.objects.filter(id=key).update(TreeSum=n)
     return render(request, 'blogadmin/navset.html', dic)
 
 
@@ -128,23 +126,43 @@ def adminNavRevise(request):
         name = request.POST['pk']
         if request.POST['method'] == '1':
             models.Section.objects.filter(id=name).update(name=navname, describe=desc, image=img)
-        elif request.POST['method'] == '4':
-            models.SectionTree.objects.filter(id=name).update(name=navname, describe=desc, image=img)
         return HttpResponseRedirect('/admin/navset/')
     if request.method == 'GET':
         name = int(request.GET['name'])
         method = request.GET['method']
+        if method == '5':
+            models.ArticleSystem.objects.filter(id=name).delete()
+            return HttpResponseRedirect('/admin/articlesy/')
         if method == '3':
             models.Section.objects.filter(id=name).delete()
-            return HttpResponseRedirect('/admin/navset/')
-        elif method == '2':
-            models.SectionTree.objects.filter(id=name).delete()
             return HttpResponseRedirect('/admin/navset/')
         elif method == '1':
             dic['data'] = models.Section.objects.get(id=name)
             dic['method'] = '1'
             return render(request, 'blogadmin/navrevise.html', dic)
-        elif method == '4':
-            dic['method'] = '4'
-            dic['data'] = models.SectionTree.objects.get(id=name)
-            return render(request, 'blogadmin/navrevise.html', dic)
+
+
+@permission_required('admin.add_logentry', login_url='/accounts/login/')
+def adminArticleSy(request):
+    dic = {'title': '文章分类'}
+    getsetting(dic)
+    dic['data'] = models.ArticleSystem.objects.all()
+    dic['data2'] = models.Section.objects.all()
+    dic['parent'] = 0
+    dic['last'] = models.ArticleSystem.objects.last()
+    if request.method == 'POST':
+        try:
+            key = request.POST['key']
+            name = request.POST['name']
+            section = request.POST['section']
+            if key == "none":
+                models.ArticleSystem.objects.create(name=name, parent=0, level=1, section=section)
+            else:
+                f = models.ArticleSystem.objects.get(id=key)
+                n = int(f.level) + 1
+                models.ArticleSystem.objects.create(name=name, parent=key, level=n, section=section)
+        except:
+            key = request.POST['rekey']
+            name = request.POST['rename']
+            models.ArticleSystem.objects.filter(id=key).update(name=name)
+    return render(request, 'blogadmin/articlesy.html', dic)

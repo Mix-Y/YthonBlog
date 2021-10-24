@@ -9,26 +9,28 @@
             <div class="adminnavstree">
                    <h><b>树&emsp;&emsp;一级版块&emsp;二级版块</b></h><br>
                 {% for nav in navs %}
+                {% if nav.parent == 0 %}
                     <h>│</h><br>
-                    <h>├─── {{nav.name}}</h>
+                    <h>└─── {{nav.name}}</h>
                     <a href="revise/?name={{nav.pk}}&method=1" class="adminnavsb">&emsp;&emsp;修改</a>
                     <a href="revise/?name={{nav.pk}}&method=3" class="adminnavsb">删除</a>
                     <br>
-                    {% for lownav in lownavs %}
-                    {% if lownav.Section == nav %}
-                        <h>│&emsp;&emsp;&emsp;├─── {{lownav.name}}</h>
-                        <a href="revise/?name={{lownav.pk}}&method=4" class="adminnavsb">&emsp;&emsp;修改</a>
-                        <a href="revise/?name={{lownav.pk}}&method=2" class="adminnavsb">删除</a>
+                    {% for nav2 in navs %}
+                    {% if nav2.parent == nav.id %}
+                        <h>│&emsp;&emsp;&emsp;└─── {{nav2.name}}</h>
+                        <a href="revise/?name={{nav2.pk}}&method=1" class="adminnavsb">&emsp;&emsp;修改</a>
+                        <a href="revise/?name={{nav2.pk}}&method=3" class="adminnavsb">删除</a>
                         <br>
                     {% endif %}
                     {% endfor %}
+                {% endif %}
                 {% endfor %}
             </div><br><br><br>
 
 
 
             <form action="/admin/navset/" method="POST" enctype="multipart/form-data">
-            <p class="admintitles"><b>增加一级版块</b></p>
+            <p class="admintitles"><b>增加版块</b></p>
             <div class="admininputbox">
                 <input type="text" class="textbox" style="height: 40px;" name="navname" placeholder="版块名称">
                 <div class="textboxdata">
@@ -42,51 +44,24 @@
                 </div>
             </div>
             <div class="admininputbox">
+                <select class="textbox2" style="height: 40px;" name="key">
+                    <option value ="0">#None</option>
+                    {% for nav in navs %}
+                    <option value ="{{nav.id}}">{{nav.name}}</option>
+                    {% endfor %}
+                  </select>
+                <div class="textboxdata">
+                    <p>父分类</p>
+                </div>
+            </div>
+            <div class="admininputbox">
                 <input type="file" class="textbox" style="height: 40px;" name="navimg">
                 <div class="textboxdata">
                     <p>描述版块,用于在版块页面显示。</p>
                 </div>
             </div>
-            <input type="text" style="display: none;" name="key" value="0">
             <input type="submit" class="adminsubmit2" value="提交">
             </form>
-
-
-
-
-            <form action="/admin/navset/" method="POST" enctype="multipart/form-data">
-                <p class="admintitles"><b>增加二级版块</b></p>
-                <div class="admininputbox">
-                    <input type="text" class="textbox" style="height: 40px;" name="navname" placeholder="版块名称">
-                    <div class="textboxdata">
-                        <p>版块名称,切勿与二级版块重名，因为我也不知道会发生什么。</p>
-                    </div>
-                </div>
-                <div class="admininputbox">
-                    <input type="text" class="textbox" style="height: 40px;" name="navdesc" placeholder="版块描述">
-                    <div class="textboxdata">
-                        <p>描述版块,用于在版块页面显示。</p>
-                    </div>
-                </div>
-                <div class="admininputbox">
-                    <select class="textbox2" style="height: 40px;" name="key">
-                        {% for nav in navs %}
-                        <option value ="{{nav.name}}">{{nav.name}}</option>
-                        {% endfor %}
-                      </select>
-                    <div class="textboxdata">
-                        <p>描述版块,用于在版块页面显示。</p>
-                    </div>
-                </div>
-                <div class="admininputbox">
-                    <input type="file" class="textbox" style="height: 40px;" name="navimg">
-                    <div class="textboxdata">
-                        <p>描述版块,用于在版块页面显示。</p>
-                    </div>
-                </div>
-                <input type="submit" class="adminsubmit2" value="提交">
-                </form>
-
 
 
 

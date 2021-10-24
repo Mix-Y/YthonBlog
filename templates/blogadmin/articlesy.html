@@ -1,0 +1,96 @@
+{% extends 'blogadmin/base.html' %}
+{% block content %}
+<div class="adminbody">
+    <p class="admintitle">文章 / 文章分类</p>
+    <div class="adminline"></div>
+    <div class="adminbodybox">
+        <div class="adminl">
+            <p class="admintitles"><b>分类树</b></p>
+            <div class="adminnavstree">
+                {% for nav2 in data2 %}
+                {% if nav2.TreeSum == 0 %}
+                <h><b>{{nav2.name}}</b></h><br>
+                {% include 'blogadmin/articlesypart.html' %}<br>
+                {% endif %}
+                {% endfor %}
+                
+                
+            </div><br><br><br>
+
+
+
+            <form action="/admin/articlesy/" method="POST">
+            <p class="admintitles"><b>增加分类</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" name="name" placeholder="分类名称">
+                <div class="textboxdata">
+                    <p>分类名称</p>
+                </div>
+            </div>
+            <div class="admininputbox">
+                <select class="textbox2" style="height: 40px;" name="key">
+                    <option value ="none">#None</option>
+                    {% for nav in data %}
+                    <option value ="{{nav.id}}">{{nav.name}}</option>
+                    {% endfor %}
+                  </select>
+                <div class="textboxdata">
+                    <p>父分类</p>
+                </div>
+            </div>
+            <div class="admininputbox">
+                <select class="textbox2" style="height: 40px;" name="section">
+                    {% for nav in data2 %}
+                    {% if nav.TreeSum == 0 %}
+                    <option value ="{{nav.id}}">{{nav.name}}</option>
+                    {% endif %}
+                    {% endfor %}
+                  </select>
+                <div class="textboxdata">
+                    <p>分类归属，请与父分类相同</p>
+                </div>
+            </div>
+            <input type="submit" class="adminsubmit2" value="提交">
+            </form>
+
+
+
+
+            <form action="/admin/articlesy/" method="POST">
+                <p class="admintitles"><b>修改分类</b></p>
+                <div class="admininputbox">
+                    <select class="textbox2" style="height: 40px;" name="rekey">
+                        <option value ="none">#None</option>
+                        {% for nav in data %}
+                        <option value ="{{nav.id}}">{{nav.name}}</option>
+                        {% endfor %}
+                      </select>
+                    <div class="textboxdata">
+                        <p>分类名称</p>
+                    </div>
+                </div>
+                <div class="admininputbox">
+                    <input type="text" class="textbox" style="height: 40px;" name="rename" placeholder="版块名称">
+                    <div class="textboxdata">
+                        <p>修改名称</p>
+                    </div>
+                </div>
+
+
+                <input type="submit" class="adminsubmit2" value="提交">
+                </form>
+
+
+
+
+
+
+            <div class="adminline"></div>
+        </div>
+        <div class="adminr">
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% for nav in data %}
+{% if nav.section == nav2.id %}
+{% if nav.parent == parent %}
+
+
+
+
+<h style="font-size: 15px;">
+{% if nav.level == 1 %}
+
+{% elif nav.level == 2 %}
+&emsp;&emsp;
+{% elif nav.level == 3 %}
+&emsp;&emsp;&emsp;&emsp;
+{% elif nav.level == 4 %}
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+{% endif %}
+└─ {{nav.name}}</h>
+<a href="/admin/navset/revise/?name={{lownav.pk}}&method=4" class="adminnavsb">&emsp;&emsp;修改</a>
+<a href="/admin/navset/revise/?name={{nav.id}}&method=5" class="adminnavsb">删除</a><br>
+
+
+
+{% if last.id > parent %}
+{% include "blogadmin/articlesypart.html" with parent=nav.id %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endfor %}

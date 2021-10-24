@@ -1,6 +1,7 @@
 from django.contrib import admin
-from blog.models import Setting, SectionTree, Article, Remark, Section
+from blog.models import Setting,  Article, Remark, Section, ArticleSystem
+
 # Register your models here.
 
 
-admin.site.register([Setting, SectionTree, Article, Remark, Section])
+admin.site.register([Setting, Article, Remark, Section, ArticleSystem])

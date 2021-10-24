@@ -9,21 +9,24 @@
                 <ul class="nav1">
                     {% for nav in navs %}
                     {% if nav.TreeSum == 0 %}
-                    <div class="navbox"><a href="/navs/?page={{nav.name}}&level=0" class="navfont2">{{nav.name}}</a></div>
+                    {% if nav.parent == 0 %}
+                    <div class="navbox"><a href="/navs/?page={{nav.id}}" class="navfont2">{{nav.name}}</a></div>
+                    {% endif %}
                     {% elif nav.TreeSum > 0 %}
                     <li>
                     <div class="navbox"><a href="#" class="navfont2">{{nav.name}}</a></div>
                         <ul class="nav2">
-                            {% for lownav in lownavs %}
-                            {% if lownav.Section == nav %}
-                            <li class="nav2li"><a href="/navs/?page={{lownav.name}}&level=1" class="nav2f">{{lownav.name}}</a></li>
+                            {% for nav2 in navs %}
+                            {% if nav2.parent == nav.id %}
+                            <li class="nav2li"><a href="/navs/?page={{nav2.id}}" class="nav2f">{{nav2.name}}</a></li>
                             {% endif %}
                             {% endfor %}
                         </ul>
                     </li>
                     {% endif %}
                     {% endfor %}
-                    </ul>
+                </ul>
+                <div class="navbox"><a href="/write/" class="navfont2">文章</a></div>
         </div>
 
         <div class="search">

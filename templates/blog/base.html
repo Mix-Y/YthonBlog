@@ -12,11 +12,11 @@
     <!--====== Title ======-->
     {% if page == 'home' %}
     <title>{{SITE_NAME}}</title>
-    {% elif page != 'home'%}
-    <title>{{title}} - {{SITE_NAME}}</title>
+    {% else%}
+    <title>{{PageData.name}} - {{SITE_NAME}}</title>
     {% endif %}
     <!--====== Favicon ======-->
-    <link rel="shortcut icon" href="/static/images/ico.ico" type="images/x-icon" />
+
 
     <!--====== CSS Here ======-->
     <link rel="stylesheet" href="/static/css/home.css">
@@ -34,7 +34,7 @@
         {% include 'blog/navheader.html' %}
     {% endblock %}  
 {% endif %}
-<body onmousewheel="bbimg()">
+<body>
     {% block content %}
 
     {% endblock %}

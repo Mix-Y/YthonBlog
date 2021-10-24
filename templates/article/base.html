@@ -17,12 +17,11 @@
     <!--====== CSS Here ======-->
     <link rel="stylesheet" href="/static/css/home.css">
     <link rel="stylesheet" href="/static/css/admin.css">
-
     <!--====== CSS Here ======-->
 
 </head>
     {% block header %}
-        {% include 'blogadmin/header.html' %}
+        {% include 'blog/navheader.html' %}
     {% endblock %}  
 <body>
     {% block content %}
@@ -31,7 +30,7 @@
 
 
     {% block bottom %}
-        {% include 'blogadmin/bottom.html' %}
+        {% include 'blog/bottom.html' %}
     {% endblock %}
 
 </body>

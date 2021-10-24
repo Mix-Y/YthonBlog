@@ -8,4 +8,5 @@ urlpatterns = [
     path('loginset/', views.adminLoginSet, name='LoginSet'),
     path('navset/', views.adminNavSet, name='NavSet'),
     path('navset/revise/', views.adminNavRevise, name='NavRevise'),
+    path('articlesy/', views.adminArticleSy, name='ArticleSy'),
 ]
