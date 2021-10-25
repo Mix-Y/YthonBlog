@@ -11,7 +11,7 @@
                     {% for nav in navs %}
                     {% if nav.TreeSum == 0 %}
                     {% if nav.parent == 0 %}
-                    <div class="navbox"><a href="/navs/?page={{nav.id}}" class="navfont">{{nav.name}}</a></div>
+                    <div class="navbox"><a href="/navs/?name={{nav.id}}&page=1" class="navfont">{{nav.name}}</a></div>
                     {% endif %}
                     {% elif nav.TreeSum > 0 %}
                     <li>
@@ -19,7 +19,7 @@
                         <ul class="nav2">
                             {% for nav2 in navs %}
                             {% if nav2.parent == nav.id %}
-                            <li class="nav2li"><a href="/navs/?page={{nav2.id}}" class="nav2f">{{nav2.name}}</a></li>
+                            <li class="nav2li"><a href="/navs/?name={{nav2.id}}&page=1" class="nav2f">{{nav2.name}}</a></li>
                             {% endif %}
                             {% endfor %}
                         </ul>
@@ -42,7 +42,7 @@
         <div class="mySlides fade">
           <img src="/static/image/ppt/ppt1.jpg" class="image">
           <div class="slideshowtext">
-            <a href="" style="color: rgb(255, 255, 255);"><b>Movie 《Interstellar》</b>
+            <a href="" class="slideshowtextwo"><b>Movie 《Interstellar》</b>
             <div class="slideshowbuttom">阅读文章</div></a>
           </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="mySlides fade">
             <img src="/static/image/ppt/ppt2.jpg" class="image">
           <div class="slideshowtext">
-            <a href="" style="color: rgb(255, 255, 255);"><b>Movie 《Interstellar》</b>
+            <a href="" class="slideshowtextwo"><b>Movie 《Interstellar》</b>
             <div class="slideshowbuttom">阅读文章</div></a>
           </div>
         </div>
@@ -58,7 +58,7 @@
         <div class="mySlides fade">
             <img src="/static/image/ppt/ppt3.jpg" class="image">
           <div class="slideshowtext">
-            <a href="" style="color: rgb(255, 255, 255);"><b>Movie 《Interstellar》</b>
+            <a href="" class="slideshowtextwo"><b>Movie 《Interstellar》</b>
             <div class="slideshowbuttom">阅读文章</div></a>
           </div>
         </div>

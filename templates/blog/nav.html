@@ -10,13 +10,13 @@
         </div>
     </div>
     <div class="newArticle">
-        <div class="articleBox">
+        <div class="articleBox2">
             <div class="articles">
                 {% for article in articles %}
                 <div class="article">
-                    <a href="">
+                    <a href="/article/?id={{article.id}}">
                         <div class="articleimg">
-                            <img src="" alt="" style="width: 100%;height: 100%;">
+                            <img src="/static/{{article.image}}" alt="" style="width: 100%;height: 100%;" >
                         </div>
                         <div class="articlefont">
                             <p style="color: rgb(75, 75, 75);font-size: 13px;">                                
@@ -33,7 +33,7 @@
                                 {% endif %}
                                 {% endfor %}
                                 {% endif %}</p>
-                            <p style="color: rgb(75, 75, 75);font-size: 18px;margin-top:7%;margin-bottom: 7%;"><b>{{article.title}}</b></p>
+                            <p style="color: rgb(75, 75, 75);font-size: 18px;margin-top:7%;margin-bottom: 7%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;"><b>{{article.title}}</b></p>
                             <div class="articleline"></div>
                             <div class="articletime">
                                 <embed src="/static/svg/clock.svg" width="15" height="15" type="image/svg+xml" />
@@ -46,7 +46,48 @@
                 </div>
                 {% endfor %}
             </div>
-            <a href=""><div class="moreArticle">更多</div></a>
+            <div class="pagecut">
+                <div class="navsline"></div>
+                <div class="pagebox">
+                    {% if pagenumk != 1 %}
+                    <a href="/navs/?name={{nownav}}&page={{pagenumk|add:-1}}">
+                        <div class="pagebut">&lt;</div>
+                        </a>
+                    {% endif %}
+                    {% for page in pages %}
+                    {% if page >= pagenum %}
+                    {% if pagenum|add:4 >= page %}
+                    {% if page == pagenumk %}
+                    <a href="/navs/?name={{nownav}}&page={{page}}">
+                    <div class="pagebut2">{{page}}</div>
+                    </a>
+                    {% else %}
+                    <a href="/navs/?name={{nownav}}&page={{page}}">
+                        <div class="pagebut">{{page}}</div>
+                        </a>
+                    {% endif %}
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                    {% if pagenumk != pagenumr %}
+                    <a href="/navs/?name={{nownav}}&page={{pagenumk|add:1}}">
+                        <div class="pagebut">&gt;</div>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+        <div class="articlenavs">
+            <div class="articlenav">
+                <p style="color: rgb(146, 146, 146);font-size: 18px;margin-left:30px;margin-bottom: 10px;"><b>&emsp;目录</b></p>
+                {% include 'blog/navspart.html' with key=0 %}
+                {% for data in datas %}
+                {% if data.parent == 0 %}
+                <a href="/article/?id={{data.id}}"><p class="navssyss">&emsp;{{data.title}}</p></a>
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

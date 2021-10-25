@@ -1,0 +1,56 @@
+{% extends 'blogadmin/base.html' %}
+{% block content %}
+<div class="adminbody">
+    <p class="admintitle">模板 / 时间杂记</p>
+    <div class="adminline"></div>
+    <div class="adminbodybox">
+        <div class="adminl">
+            <form action="/admin/timemess/" method="POST">
+            <form class="login" method="POST" action="/admin/loginset/">
+            <p class="admintitles"><b>开启时间杂记</b></p>
+            <div class="admininputbox">
+                <input type="checkbox" class="checkbox" style="height: 40px;" >
+                <div class="textboxdata">
+                    <p>#未开放# 开启时间杂记，位于首页底部的一个小功能。</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>模板标题</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" value="{{TIME_BOX_NAME}}" name="TIME_BOX_NAME">
+                <div class="textboxdata">
+                    <p>模板标题</p>
+                </div>
+            </div>
+            <p class="admintitles"><b>模板副标题</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" value="{{TIME_BOX_DESC}}" name="TIME_BOX_DESC">
+                <div class="textboxdata">
+                    <p>模板副标题</p>
+                </div>
+            </div>
+            <input type="text" class="textbox" style="display: none;" value="0" name="body">
+            <input type="submit" class="adminsubmit" value="提交">
+        </form>
+
+
+        <form action="/admin/timemess/" method="POST">
+            <input type="text" class="textbox" style="display: none;" value="{{TIME_BOX_DESC}}" name="TIME_BOX_DESC">
+            <input type="text" class="textbox" style="display: none;" value="{{TIME_BOX_NAME}}" name="TIME_BOX_NAME">
+            <p class="admintitles"><b>添加新内容</b></p>
+            <div class="admininputbox">
+                <textarea type="text" class="textbox" style="height: 300px;padding-top: 20px;" name="body"></textarea>
+                <div class="textboxdata">
+                    <p>内容将自动获取时间，以及用户名，内容将上传至数据库进行保存</p>
+                </div>
+            </div>
+            <input type="submit" class="adminsubmit" value="提交">
+            <div class="adminline"></div>
+        </form>
+        </div>
+        <div class="adminr">
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

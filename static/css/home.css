@@ -19,14 +19,22 @@ header{
     background-color:rgba(255, 255, 255, 0.050);
     z-index:999
 }
+.header:hover{
+    transition:all 500ms;
+    background-color:rgba(12, 12, 12, 0.267);
+}
 .headertwo{
-    height:65px;
+    height:63px;
     width: 100%;
     display: flex;
     background-color:rgb(245, 245, 245);
     box-shadow: 0px 5px 10px #88888859;
     z-index: 990;
     position: absolute;
+}
+.headertwo:hover{
+    transition:all 500ms;
+    background-color:rgba(226, 226, 226, 0.836);
 }
 .logo{
     margin-left: 20%;
@@ -57,8 +65,9 @@ header{
 }
 .newArticle{
     width: 100%;
-    height: 150%;
+    height: 170%;
     background-color:rgb(238, 238, 240);
+    display: flex;
 }
 .timeMessage{
     width: 100%;
@@ -71,9 +80,20 @@ header{
     background-color:rgb(39, 39, 39);
     
 }
+.bottomNavs2{
+    width: 100%;
+    height: 450px;
+    background-color:rgb(39, 39, 39);
+    
+}
 .bottomInformation{
     width: 100%;
     height: 10%;
+    background-color:rgb(32, 32, 32);
+}
+.bottomInformation2{
+    width: 100%;
+    height: 100px;
     background-color:rgb(32, 32, 32);
 }
 .navbox{
@@ -96,14 +116,22 @@ a{
 }
 .enterBlogbox{
     width: 25%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
     text-align: center;
     padding-top: 75px;
     display: flex;
+    z-index: 990;
 }
 .enterBlogfont{
     font-size: 25px;
-    color: rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 0);
+    -webkit-animation-name: slideshowtextwo; /*动画名称*/
+    -webkit-animation-duration: 1s; /*动画持续时间*/
+    -webkit-animation-iteration-count: 1; /*动画次数*/
+    -webkit-animation-delay: 0.5s; /*延迟时间*/
+    animation-fill-mode : forwards;
 }
 .enterBlogbox2{
     font-size: 15px;
@@ -116,10 +144,23 @@ a{
     border-radius: 25px;
     margin-left: 50px;
 }
+
+.articlenav{
+    width: 100%;
+    height: auto;
+    border-left: 1px solid rgb(201, 201, 201);;
+    padding-bottom: 50px;
+}
 .articleBox{
     width: 65%;
-    height: 100%;
+    height: 120%;
     margin: auto;
+    padding-top: 3%;
+}
+.articleBox2{
+    width: 63%;
+    height: 100%;
+    margin-left: 10%;
     padding-top: 3%;
 }
 .articles{
@@ -128,7 +169,7 @@ a{
 }
 .article{
     width: 30%;
-    height: 40%;
+    height: 370px;
     background-color: rgb(255, 255, 255);
     float: left;
     margin: 1.6%;
@@ -156,17 +197,13 @@ a{
 .moreArticle{
     margin-left: 45%;
     width: 8%;
-    height: 3%;
+    height: 40px;
     font-size: 18px;
     color: rgb(255, 255, 255);
     background-color:rgb(44, 83, 199);
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-left: 27px;
+    padding-top: 5px;
     border-radius: 25px;
-    text-align: center;
-    margin-top: 3%;
 }
 .timebox{
     padding-top: 3%;
@@ -283,6 +320,7 @@ a{
     width: 100%;
     height: 60%;
     box-shadow: 0px 0px 10px 100px rgba(0, 0, 0, 0.712) inset;
+    z-index: 1;
 }
 .navimages{
     width: 100%;
@@ -307,14 +345,16 @@ a{
 
 
 .nav1 li:hover .nav2{
+    transition:all 2000ms;
     display: block;        
     z-index: 990;   
 }
 
 .nav1 li .nav2{
+    transition:all 2000ms;
     display: none;
     position: absolute;
-    margin-top: 25px;
+    margin-top: 21px;
     width: 250px;   
     background-color: rgb(43, 43, 43);
     font-size: 15px;
@@ -330,15 +370,18 @@ a{
 }
 .navfont:hover{
     color: rgb(148, 148, 148);
+    transition:all 200ms
 }
 .nav2f:hover{
     color: rgb(219, 219, 219);
+    transition:all 200ms
 }
 .navfont2{
     color: #000000;
 }
 .navfont2:hover{
     color: rgb(116, 116, 116);
+    transition:all 200ms
 }
 @-webkit-keyframes blur {
     0% {
@@ -369,6 +412,158 @@ a{
     -webkit-animation-iteration-count: 1; /*动画次数*/
     -webkit-animation-delay: 0.5s; /*延迟时间*/
 }
+.articlenavs{
+    width: 17%;
+    height: 100%;
+    margin-left: 2%;
+    padding-top: 4%;
+}
+.navssys{
+    margin-left: 40px;
+    font-size: 15px;
+    color: #505050;
+}
+.navssyss{
+    margin-left: 40px;
+    font-size: 15px;
+    color: #505050;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+}
+.navssyss:hover{
+    background-color: #c4c4c4;
+    transition:all 200ms
+}
+.navssysss:hover{
+    background-color: #c4c4c4;
+    transition:all 200ms
+}
+.pagecut{
+    width: 100%;
+    display: flex;
+}
+.pagebox{
+    margin: auto;
+    display: flex;
+    margin-top: 200px;
+}
+.pagebut{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    padding-top: 8px;
+    color: rgb(37, 37, 37);
+    text-align: center;
+}
+.pagebut:hover{
+    background-color: #dadada;
+    transition:all 500ms;
+}
+.pagebut2{
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #c9c9c9;
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    padding-top: 8px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+.navsline{
+    width: 1150px;
+    height: 1px;
+    border-bottom:1px solid rgba(0, 0, 0, 0.2);
+    margin-top: 120px;
+    margin-bottom: 30px;
+    position: absolute;
+}
+.article:hover{
+    box-shadow: 0px 5px 30px #53535381;
+    transition:all 500ms;
+    transform: scale(1.1);
+}
+.logobig:hover{
+    transition:all 1500ms;
+    transform: scale(1.5);
+}
+.logo:hover{
+    -webkit-animation-name: logo; /*动画名称*/
+    -webkit-animation-duration: 2s; /*动画持续时间*/
+    -webkit-animation-iteration-count: 1; /*动画次数*/
+    animation-fill-mode : forwards;
+}
 
+@-webkit-keyframes logo{
+    0% {
+        transform: translateX(0);
+    }
 
+    100% {
+        transform: translateX(-100px);
+    }
+}
+.articlepage{
+    width: 100%;
+    height: 100%;
+}
+.articlepagebody{
+    position: absolute;
+    width: 100%;
 
+    background-color: rgb(238, 238, 238);
+    z-index: 990;
+}
+.articlepagebody2{
+    width: 100%;
+    height: auto;
+}
+.articlepagebody3{
+    width: 65%;
+    height: auto;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    margin-top: -100px;
+    margin-bottom: 100px;
+    box-shadow: 0px 5px 30px #53535381;
+}
+.pagebodyimg{
+    width: 100%;
+    height: 550px;
+}
+.articlepagebody4{
+    width: 100%;
+    height: auto;
+}
+.articlepagebody4{
+    width: 75%;
+    height: auto;
+    margin:auto;
+    padding-bottom: 150px;
+}
+.articlepagebody6{
+    font-size: 18px;
+    color: rgb(71, 71, 71);
+    line-height: 40px;
+    
+}
+code{
+    font-size: 15px;
+    color: rgb(209, 209, 209);
+    line-height: 25px;
+}
+pre{
+    background-color: rgb(58, 58, 58);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+
+}

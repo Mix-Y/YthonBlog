@@ -16,7 +16,6 @@ body {
   width: 100%;
   height: 100%;
   position: relative;
-  margin: suto;
 }
 
 /* 下一张 & 上一张 按钮 */
@@ -52,9 +51,20 @@ body {
   position: absolute;
   bottom: 8px;
   width: 100%;
-  padding-bottom: 10%;
+  -webkit-animation-name: slideshowtext; /*动画名称*/
+  -webkit-animation-duration: 2s; /*动画持续时间*/
+  -webkit-animation-iteration-count: 1; /*动画次数*/
+  -webkit-animation-delay: 0.5s; /*延迟时间*/
+  animation-fill-mode : forwards;
   padding-left: 16%;
-
+}
+.slideshowtextwo {
+  color: #71717100;
+  -webkit-animation-name: slideshowtextwo; /*动画名称*/
+  -webkit-animation-duration: 2s; /*动画持续时间*/
+  -webkit-animation-iteration-count: 1; /*动画次数*/
+  -webkit-animation-delay: 0.5s; /*延迟时间*/
+  animation-fill-mode : forwards;
 }
 .slideshowbuttom{
     margin-top: 50px;
@@ -64,9 +74,14 @@ body {
     padding-bottom: 7px;
     padding-left: 23px;
     padding-right: 20px;
-    color: rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 0);
     border-radius: 25px;
-    border:1px solid rgba(255, 255, 255, 0.2);
+    border:1px solid rgba(255, 255, 255, 0);
+    -webkit-animation-name: slideshowtextwo2; /*动画名称*/
+    -webkit-animation-duration: 2s; /*动画持续时间*/
+    -webkit-animation-iteration-count: 1; /*动画次数*/
+    -webkit-animation-delay: 0.5s; /*延迟时间*/
+    animation-fill-mode : forwards;
 }
 .slideshowbuttom:hover{
     border:1px solid rgba(255, 255, 255, 0.562);
@@ -120,4 +135,35 @@ body {
     position: absolute;
     z-index: 990;
     margin-top: -50px;
+}
+
+@-webkit-keyframes slideshowtext{
+  0% {
+    padding-bottom: 0%;
+    color: rgba(255, 255, 255, 0);
+  }
+  100% {
+    padding-bottom: 10%;
+    color: rgb(255, 255, 255, 0);
+  }
+}
+
+@-webkit-keyframes slideshowtextwo{
+  0% {
+    color: rgba(255, 255, 255, 0);
+  }
+  100% {
+    color: rgb(255, 255, 255);
+  }
+}
+
+@-webkit-keyframes slideshowtextwo2{
+  0% {
+    border:1px solid rgba(255, 255, 255, 0);
+    color: rgba(255, 255, 255, 0);
+  }
+  100% {
+    border:1px solid rgba(255, 255, 255, 0.2);
+    color: rgb(255, 255, 255);
+  }
 }

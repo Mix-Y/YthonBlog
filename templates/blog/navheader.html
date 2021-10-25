@@ -10,7 +10,7 @@
                     {% for nav in navs %}
                     {% if nav.TreeSum == 0 %}
                     {% if nav.parent == 0 %}
-                    <div class="navbox"><a href="/navs/?page={{nav.id}}" class="navfont2">{{nav.name}}</a></div>
+                    <div class="navbox"><a href="/navs/?name={{nav.id}}&page=1" class="navfont2">{{nav.name}}</a></div>
                     {% endif %}
                     {% elif nav.TreeSum > 0 %}
                     <li>
@@ -18,7 +18,7 @@
                         <ul class="nav2">
                             {% for nav2 in navs %}
                             {% if nav2.parent == nav.id %}
-                            <li class="nav2li"><a href="/navs/?page={{nav2.id}}" class="nav2f">{{nav2.name}}</a></li>
+                            <li class="nav2li"><a href="/navs/?name={{nav2.id}}&page=1" class="nav2f">{{nav2.name}}</a></li>
                             {% endif %}
                             {% endfor %}
                         </ul>

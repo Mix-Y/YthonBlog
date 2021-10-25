@@ -7,7 +7,7 @@
     <div class="adminline"></div>
     <div class="adminbodybox">
         <div class="adminl">
-            <form action="/write/" method="POST">
+            <form action="/write/" method="POST" enctype="multipart/form-data">
             <p class="admintitles"><b>文章标题</b></p>
             <div class="admininputbox">
                 <input type="text" class="textbox" style="height: 40px;" name="name">
@@ -36,7 +36,13 @@
                     <p>描述版块,用于在版块页面显示。</p>
                 </div>
             </div>
-
+            <p class="admintitles"><b>封面图片</b></p>
+            <div class="admininputbox">
+                <input type="file" class="textbox" style="height: 40px;" name="navimg">
+                <div class="textboxdata">
+                    <p>描述版块,用于在版块页面显示。</p>
+                </div>
+            </div>
 
             <p class="admintitles"><b>内容</b></p>
             
@@ -75,5 +81,7 @@
     </div>
 
 </div>
-
+{% block bottom %}
+{% include 'blog/bottom.html' %}
+{% endblock %}
 {% endblock %}

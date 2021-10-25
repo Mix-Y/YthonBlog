@@ -1,0 +1,36 @@
+{% for sy in sys %}
+{% if sy.parent == key %}
+{% if sy.sum == 0 %}
+<details class="navssys">
+    <summary class="navssysss">{{sy.name}}</summary>
+    <ol>
+        {% for data in datas %}
+        {% if data.parent == sy.id %}
+        <li><a href="/article/?id={{data.id}}">&emsp;&emsp;{{data.title}}</a></li>
+        {% endif %}
+        {% endfor %}
+    </ol>
+</details>
+
+{% else %}
+
+<details class="navssys">
+    <summary class="navssysss">{{sy.name}}</summary>
+    <ol>
+        {% if last.id > key %}
+        {% include 'blog/navspart.html' with key=sy.id %}
+        {% endif %}
+        {% for data in datas %}
+        {% if data.parent == sy.id %}
+        <a href="/article/?id={{data.id}}"><li class="navssyss">&emsp;{{data.title}}</li></a>
+        {% endif %}
+        {% endfor %}
+    </ol>
+</details>
+{% endif %}
+
+
+
+
+{% endif %}
+{% endfor %}

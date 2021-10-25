@@ -1,0 +1,82 @@
+{% extends 'article/base.html' %}
+
+{% block content %}
+
+<div class="articlepage">
+    <div class="navimage">
+        <div style="width: 100%;height: 100%;">
+        <img class="navbackimage" src="/static/{{data.image}}" style="width: 100%;height: 100%;z-index: 10;object-fit: cover;"></div>
+        <div class="navimages">
+            <p class="navimagesfont"><b>{{data.title}}</b></p>
+            <p class="navimagesfont2">{{data.ftitle}}</p>
+        </div>
+    </div>
+    <div class="articlepagebody">
+
+
+
+        <div class="articlepagebody2">
+            <div class="articlepagebody3">
+                <img src="/static/{{data.image}}" alt="" class="pagebodyimg">
+                <div class="articlepagebody4">
+                    <div class="articlepagebody5">
+                        <p style="font-size: 20px;margin-top: 40px;"><b>{{data.writer}}</b></p>
+                        <p style="color: rgb(82, 82, 82);margin-bottom: 50px;"><i>{{data.time}}</i></p>
+                        <div class="articlepagebody6">
+                            {% autoescape off %}
+                            {{data.body}}
+                            {% endautoescape %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+    <div class="bottomNavs2">
+        <div class="navsBox">
+            <div class="navAbout">
+                <embed src="/static/svg/logo.svg" width="50" height="50" type="image/svg+xml"  style="margin-top:7px;" class="logobig"/>
+                <p class="navAboutStr">{{SITE_DESC}}</p>
+                <a href=""><p class="navAboutButton">隐私政策</p></a>
+                <a href=""><p class="navAboutButton">赞助鸣谢</p></a>
+                <a href=""><p class="navAboutButton">技术交流</p></a>
+                <a href=""><p class="navAboutButton">关于我们</p></a>
+            </div>
+            <div class="navMess">
+                <p style="font-size: 20px;color: rgb(255, 255, 255);"><b>留言墙</b></p>
+                <p style="color: #e6e6e6;margin-top: 5%;margin-bottom: 3%;">最新留言时间： 2019年1月09日</p>
+                <div class="mess">
+    
+                </div>
+
+            </div>
+            <div class="navSearch">
+                <p style="font-size: 20px;color: rgb(255, 255, 255);"><b>搜索</b></p>
+                <p style="color: #e6e6e6;margin-top: 5%;margin-bottom: 3%;">在整个站点搜索你所需的内容。</p>
+                <div class="navSearchBox">
+                    <input type="text" class="navSearchBoxText" placeholder="输入关键词">
+                    <input type="submit" class="navSearchBoxSub">
+                </div>
+                <p style="font-size: 20px;color: rgb(255, 255, 255);"><b>联系我</b></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bottomInformation2">
+        <div class="bottomInformationbox">
+            <p class="nformation">Copyright © 2021 ython.top All Rights Reserved. Powered By Django. <a href="https://beian.miit.gov.cn/" style="color: rgb(143, 143, 143);">{{CN_GOV_RECORD_DATA}}</a></p>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

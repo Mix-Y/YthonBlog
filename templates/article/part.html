@@ -13,7 +13,11 @@
 {% elif sy.level == 4 %}
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└───
 {% endif %}
-{{sy.name}}</option>
+{{sy.name}}
+{% if sy.sum != 0 %}
+(禁止选择)
+{% endif %}
+</option>
 
 
 

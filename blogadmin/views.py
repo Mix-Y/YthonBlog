@@ -156,13 +156,30 @@ def adminArticleSy(request):
             name = request.POST['name']
             section = request.POST['section']
             if key == "none":
-                models.ArticleSystem.objects.create(name=name, parent=0, level=1, section=section)
+                models.ArticleSystem.objects.create(name=name, parent=0, sum=0, section=section)
             else:
                 f = models.ArticleSystem.objects.get(id=key)
-                n = int(f.level) + 1
-                models.ArticleSystem.objects.create(name=name, parent=key, level=n, section=section)
+                n = int(f.sum) + 1
+                n2 = int(f.level) + 1
+                models.ArticleSystem.objects.filter(id=key).update(sum=n)
+                models.ArticleSystem.objects.create(name=name, parent=key, sum=0, section=section, level=n2)
         except:
             key = request.POST['rekey']
             name = request.POST['rename']
             models.ArticleSystem.objects.filter(id=key).update(name=name)
     return render(request, 'blogadmin/articlesy.html', dic)
+
+@permission_required('admin.add_logentry', login_url='/accounts/login/')
+def adminTimeMess(request):
+    dic = {'title': '时间杂记'}
+    getsetting(dic)
+    if request.method == 'POST':
+        dic['TIME_BOX_NAME'] = request.POST['TIME_BOX_NAME']
+        dic['TIME_BOX_DESC'] = request.POST['TIME_BOX_DESC']
+        body = request.POST['body']
+        if body == '0':
+            writeSet(dic)
+        else:
+            writer = str(request.user)
+            models.TimeMess.objects.create(body=body, writer=writer)
+    return render(request, 'blogadmin/timebox.html', dic)
