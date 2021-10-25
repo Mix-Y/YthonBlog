@@ -34,9 +34,9 @@ class Remark(models.Model):
     id = models.AutoField(primary_key=True)
     email = models.CharField(max_length=255, verbose_name='email')
     writer = models.CharField(max_length=255, verbose_name='writer')
-    time = models.CharField(max_length=1000, verbose_name='time')
+    time = models.DateField(verbose_name='time', auto_now=True)
     body = models.CharField(max_length=60000, verbose_name='body')
-    parent = models.CharField(max_length=255, verbose_name='parent')
+    parent = models.IntegerField(max_length=200, verbose_name='parent', default=0)
 
 
 class ArticleSystem(models.Model):

@@ -22,4 +22,6 @@ urlpatterns = [
     path('navs/', views.navs, name='navs'),
     path('write/', views.write, name='write'),
     path('article/', views.article, name='article'),
+    path('search/', views.search, name='search'),
+    path('mess/', views.mess, name='mess'),
 ]

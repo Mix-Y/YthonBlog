@@ -6,7 +6,7 @@
     <ol>
         {% for data in datas %}
         {% if data.parent == sy.id %}
-        <li><a href="/article/?id={{data.id}}">&emsp;&emsp;{{data.title}}</a></li>
+        <li><a href="/article/?id={{data.id}}" style="color: #505050;">&emsp;&emsp;{{data.title}}</a></li>
         {% endif %}
         {% endfor %}
     </ol>
@@ -22,7 +22,7 @@
         {% endif %}
         {% for data in datas %}
         {% if data.parent == sy.id %}
-        <a href="/article/?id={{data.id}}"><li class="navssyss">&emsp;{{data.title}}</li></a>
+        <a href="/article/?id={{data.id}}" style="color: #505050;"><li class="navssyss">&emsp;{{data.title}}</li></a>
         {% endif %}
         {% endfor %}
     </ol>

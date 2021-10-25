@@ -20,10 +20,13 @@
         <div class="navSearch">
             <p style="font-size: 20px;color: rgb(255, 255, 255);"><b>搜索</b></p>
             <p style="color: #e6e6e6;margin-top: 5%;margin-bottom: 3%;">在整个站点搜索你所需的内容。</p>
+            <form action="/search/" method="GET">
             <div class="navSearchBox">
-                <input type="text" class="navSearchBoxText" placeholder="输入关键词">
+                
+                <input type="text" class="navSearchBoxText" placeholder="输入关键词" name="name">
                 <input type="submit" class="navSearchBoxSub">
-            </div>
+            
+            </div></form>
             <p style="font-size: 20px;color: rgb(255, 255, 255);"><b>联系我</b></p>
         </div>
     </div>

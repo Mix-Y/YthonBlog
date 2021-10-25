@@ -50,6 +50,7 @@ header{
     width: 10%;
     height: 100%;
     border-left:1px solid rgba(255, 255, 255, 0.20);
+    display: flex;
 }
 .image{
     width: 100%;
@@ -100,6 +101,13 @@ header{
     height: auto;
     font-size: 15px;
     margin-top: 20px;
+    color: rgb(255, 255, 255);
+    margin-right: 50px;
+}
+.navbox2{
+    height: auto;
+    font-size: 15px;
+    margin-top: 3px;
     color: rgb(255, 255, 255);
     margin-right: 50px;
 }
@@ -173,6 +181,10 @@ a{
     background-color: rgb(255, 255, 255);
     float: left;
     margin: 1.6%;
+    -webkit-animation-name: box; /*动画名称*/
+    -webkit-animation-duration: 2s; /*动画持续时间*/
+    -webkit-animation-iteration-count: 1; /*动画次数*/
+
 }
 .articleimg{
     width: 100%;
@@ -263,7 +275,7 @@ a{
 }
 .wirteMess{
     width: 25%;
-    height: 15%;
+    height: 40px;
     font-size: 17px;
     color: rgb(255, 255, 255);
     border-radius: 25px;
@@ -274,8 +286,7 @@ a{
 }
 .navSearchBox{
     width: 100%;
-    height: 18%;
-    background-color: violet;
+    height: 45px;
     border-radius: 50px;
     margin-top: 5%;
     margin-bottom: 10%;
@@ -286,18 +297,40 @@ a{
     color: rgb(124, 124, 124);
     padding-left: 30px;
     width: 65%;
-    height: 100%;
+    height: 45px;
     background-color: white;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
     outline-style: none ;
     border: 0px;
 }
+.navSearchBoxText2{
+    font-size: 20px;
+    color: rgb(124, 124, 124);
+    padding-left: 30px;
+    width: 65%;
+    height: 70px;
+    background-color: white;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    outline-style: none ;
+    border: 0px;
+}
+.navSearchBoxSub2{
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    width: 35%;
+    height: 70px;
+    background-color: rgb(63, 63, 63);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border: 0px;
+}
 .navSearchBoxSub{
     font-size: 16px;
     color: rgb(255, 255, 255);
     width: 35%;
-    height: 100%;
+    height: 45px;
     background-color: rgb(64, 94, 192);
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
@@ -331,12 +364,18 @@ a{
     color: rgb(255, 255, 255);
     text-align: center;
     margin-top: -18%;
+    -webkit-animation-name: box; /*动画名称*/
+    -webkit-animation-duration: 2s; /*动画持续时间*/
+    -webkit-animation-iteration-count: 1; /*动画次数*/
 }
 .navimagesfont2{
     font-size: 20px;
     color: rgb(255, 255, 255);
     text-align: center;
     margin-top: 3%;
+    -webkit-animation-name: box; /*动画名称*/
+    -webkit-animation-duration: 2s; /*动画持续时间*/
+    -webkit-animation-iteration-count: 1; /*动画次数*/
 }
 
 .nav1{
@@ -487,6 +526,7 @@ a{
     box-shadow: 0px 5px 30px #53535381;
     transition:all 500ms;
     transform: scale(1.1);
+
 }
 .logobig:hover{
     transition:all 1500ms;
@@ -566,4 +606,47 @@ pre{
     padding-top: 2%;
     padding-bottom: 2%;
 
+}
+.artclebottom{
+    margin: auto;
+    width: 65%;
+    height: auto;
+    margin-bottom: 100px;
+}
+.remark{
+    margin: auto;
+    width: 65%;
+    height: auto;
+}
+.remarktitle{
+    font-size: 20px;
+}
+.remarktitle2{
+    font-size: 30px;
+}
+.remarkbox{
+    min-width: 98%;
+    max-width: 98%;
+    border: 0px;
+    border:none;
+    border-radius: 5px;
+    margin-top: 30px;
+    font-size: 18px;
+    height: 40px;
+    padding-left: 2%;
+}
+
+@-webkit-keyframes box{
+    0% {
+        transform: translateY(100px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+.searchbox{
+    text-align: center;
+    font-size: 30px;
+    color: rgb(173, 173, 173);
 }

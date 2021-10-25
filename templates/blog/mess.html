@@ -5,43 +5,27 @@
 <div class="articlepage">
     <div class="navimage">
         <div style="width: 100%;height: 100%;">
-        <img class="navbackimage" src="/static/{{data.image}}" style="width: 100%;height: 100%;z-index: 10;object-fit: cover;"></div>
+        <img class="navbackimage" src="/static/image/messbackg.jpg" style="width: 100%;height: 100%;z-index: 10;object-fit: cover;"></div>
         <div class="navimages">
-            <p class="navimagesfont"><b>{{data.title}}</b></p>
-            <p class="navimagesfont2">{{data.ftitle}}</p>
+            <p class="navimagesfont"><b>留言</b></p>
+            <p class="navimagesfont2">与君初相识 犹如旧人归</p>
         </div>
     </div>
     <div class="articlepagebody">
 
-
-
         <div class="articlepagebody2">
-            <div class="articlepagebody3">
-                <img src="/static/{{data.image}}" alt="" class="pagebodyimg">
-                <div class="articlepagebody4">
-                    <div class="articlepagebody5">
-                        <p style="font-size: 20px;margin-top: 40px;"><b>{{data.writer}}</b></p>
-                        <p style="color: rgb(82, 82, 82);margin-bottom: 50px;"><i>{{data.time}}</i></p>
-                        <div class="articlepagebody6">
-                            {% autoescape off %}
-                            {{data.body}}
-                            {% endautoescape %}
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
+
             <div class="artclebottom">
-                <div class="remark">
-                    <form action="/article/?id={{data.id}}" method="POST">
+                <div class="remark" style="margin-top: 100px;">
+                    <form action="/mess/" method="POST">
                     <div class="adminline"></div>
                     <embed src="/static/svg/remark.svg" width="20" height="20" type="image/svg+xml"  style="margin-top:7px;"/>
-                    <h class="remarktitle"><i><b>留下你的评论吧...</b></i></h><br><br>
-                    <h class="remarktitle2"><b>评论</b></h>
+                    <h class="remarktitle"><i><b>不妨在此留下些什么...</b></i></h><br><br>
+                    <h class="remarktitle2"><b>留言</b></h>
                     <textarea type="text" placeholder="评论" class="remarkbox" name="body" style="max-height: 100px;min-height: 100px;padding-top: 5px;" required/></textarea>
                     <input type="text" placeholder="称呼" class="remarkbox" name="name" required/>
                     <input type="email" placeholder="邮箱" class="remarkbox" name="email" required/>    
-                    <input type="text" placeholder="id" style="display: none;" value="{{data.id}}" name="id" required/> 
+                    <input type="text" placeholder="id" style="display: none;" value="0" name="id" required/> 
                     <input type="submit" class="adminsubmit2" value="提交">
                     </form>
                     <div class="adminline"></div>

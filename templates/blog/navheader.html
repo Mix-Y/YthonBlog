@@ -26,12 +26,26 @@
                     {% endif %}
                     {% endfor %}
                 </ul>
-                <div class="navbox"><a href="/write/" class="navfont2">文章</a></div>
+                <div class="navbox"><a href="/mess/" class="navfont2">留言</a></div>
         </div>
 
         <div class="search">
-            <a href=""><img src="/static/image/search1.png" alt="" width="30" height="30" style="margin-top:15px;margin-left: 40px;" ></a>
-            <a href="/accounts/login/"><img src="/static/image/loginico1.png" alt="" width="25" height="25" style="margin-top:15px;margin-left: 40px;"></a>
+            <a href="/search/?name="><img src="/static/image/search1.png" alt="" width="30" height="30" style="margin-top:15px;margin-left: 40px;" ></a>
+            {% if login == False %}
+            <a href="/accounts/login/"><img src="/static/image/loginico1.png" alt="" width="25" height="25" style="margin-top:20px;margin-left: 40px;"></a>
+            {% elif login == True %}
+            <ul class="nav1">
+                <li>
+                <div class="navbox2"><img src="/static/image/loginico1.png" alt="" width="25" height="25" style="margin-top:15px;margin-left: 40px;"></div>
+                    <ul class="nav2">
+                        <li class="nav2li"><a href="/write/" class="nav2f">写文章</a></li>
+                        <li class="nav2li"><a href="/admin/" class="nav2f">后台管理</a></li>
+                        <li class="nav2li"><a href="/admins/" class="nav2f">数据管理</a></li>
+                        <li class="nav2li"><a href="/accounts/logout/" class="nav2f">退出登陆</a></li>
+                    </ul>
+                </li>
+            </ul>
+            {% endif %}
         </div>
     </div>
 </header>
