@@ -1,0 +1,80 @@
+{% extends 'blogadmin/base.html' %}
+{% block content %}
+<div class="adminbody">
+    <p class="admintitle">模板 / 轮播图</p>
+    <div class="adminline"></div>
+    <div class="adminbodybox">
+        <div class="adminl">
+            <form class="login" method="POST" action="/admin/homeimage/">
+            <p class="admintitles"><b>图1</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" value="{{HOME_IMAGE_1}}" name="HOME_IMAGE_1">
+                <div class="textboxdata">
+                    <p>图片地址</p>
+                </div>
+            </div>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" value="{{HOME_IMAGE_TITLE_1}}" name="HOME_IMAGE_TITLE_1">
+                <div class="textboxdata">
+                    <p>图片标题</p>
+                </div>
+            </div>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" value="{{HOME_IMAGE_ADD_1}}" name="HOME_IMAGE_ADD_1">
+                <div class="textboxdata">
+                    <p>标题地址</p>
+                </div>
+            </div>
+
+            <p class="admintitles"><b>图2</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" value="{{HOME_IMAGE_2}}" name="HOME_IMAGE_2">
+                <div class="textboxdata">
+                    <p>图片地址</p>
+                </div>
+            </div>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" value="{{HOME_IMAGE_TITLE_2}}" name="HOME_IMAGE_TITLE_2">
+                <div class="textboxdata">
+                    <p>图片标题</p>
+                </div>
+            </div>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" value="{{HOME_IMAGE_ADD_2}}" name="HOME_IMAGE_ADD_2">
+                <div class="textboxdata">
+                    <p>标题地址</p>
+                </div>
+            </div>
+
+            <p class="admintitles"><b>图3</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" value="{{HOME_IMAGE_3}}" name="HOME_IMAGE_3">
+                <div class="textboxdata">
+                    <p>图片地址</p>
+                </div>
+            </div>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" value="{{HOME_IMAGE_TITLE_3}}" name="HOME_IMAGE_TITLE_3">
+                <div class="textboxdata">
+                    <p>图片标题</p>
+                </div>
+            </div>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" value="{{HOME_IMAGE_ADD_3}}" name="HOME_IMAGE_ADD_3">
+                <div class="textboxdata">
+                    <p>标题地址</p>
+                </div>
+            </div>
+
+
+            <input type="submit" class="adminsubmit" value="提交">
+            <div class="adminline"></div>
+        </form>
+        </div>
+        <div class="adminr">
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

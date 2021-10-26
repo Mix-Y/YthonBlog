@@ -1,0 +1,87 @@
+{% extends 'blogadmin/base.html' %}
+{% block content %}
+<div class="adminbody">
+    <p class="admintitle">文章 / 文章管理</p>
+    <div class="adminline"></div>
+    <div class="adminbodybox">
+        <div class="adminl">
+            <form action="/admin/rearticles/" method="get">
+            <p class="admintitles"><b>版块选择</b></p>
+            <div class="admininputbox">
+            <select class="textbox2" style="height: 40px;" name="m">
+                <option value ="">#None</option>
+                {% for nav in navs %}
+                {% if nav.TreeSum == 0 %}
+                <option value ="{{nav.id}}">{{nav.name}}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+            <div class="textboxdata">
+                <p>用于模糊搜索</p>
+            </div>
+            </div>
+
+
+            <p class="admintitles"><b>文章搜索</b></p>
+            <div class="admininputbox">
+                <input type="text" class="textbox" style="height: 40px;" name="n" placeholder="版块描述">
+                <div class="textboxdata">
+                    <p>用于详细搜索</p>
+                </div>
+            </div>
+            <input type="text" class="textbox" style="display: none;" name="page" value="1">
+            <input type="submit" class="adminsubmit2" value="提交">
+            </form>
+
+
+
+
+
+            <p class="admintitles"><b>文章列表</b></p>
+            <div class="adminnavstree" style="font-size: 15px;">
+            {% for article in articles %}
+            {{article.id}}.{{article.title}}
+            <a href="/rewrite/?id={{article.pk}}" class="adminnavsb">&emsp;&emsp;修改</a>
+            <a href="/admin/navset/revise/?name={{article.pk}}&method=4" class="adminnavsb">删除</a><br>
+            {% endfor %}
+            </div>
+
+
+            <div class="pagecut">
+                <div class="pagebox2">
+                    {% if pagenumk != 1 %}
+                    <a href="/admin/rearticles/?m={{m}}&n={{n}}&page={{pagenumk|add:-1}}">
+                        <div class="pagebut">&lt;</div>
+                        </a>
+                    {% endif %}
+                    {% for page in pages %}
+                    {% if page >= pagenum %}
+                    {% if pagenum|add:4 >= page %}
+                    {% if page == pagenumk %}
+                    <a href="/admin/rearticles/?m={{m}}&n={{n}}&page={{page}}">
+                    <div class="pagebut2">{{page}}</div>
+                    </a>
+                    {% else %}
+                    <a href="/admin/rearticles/?m={{m}}&n={{n}}&page={{page}}">
+                        <div class="pagebut">{{page}}</div>
+                        </a>
+                    {% endif %}
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                    {% if pagenumk != pagenumr %}
+                    <a href="/admin/rearticles/?m={{m}}&n={{n}}&page={{pagenumk|add:1}}">
+                        <div class="pagebut">&gt;</div>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="adminline"></div>
+        </div>
+        <div class="adminr">
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

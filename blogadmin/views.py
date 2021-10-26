@@ -2,11 +2,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import permission_required
 from django.http import HttpResponseRedirect
 from django.utils.datastructures import MultiValueDictKeyError
-
-from django.contrib.auth.models import ContentType, Permission
+from django.db.models import Q
 import json
 import demjson
 from blog import models
+import math
 
 
 def getsetting(dic):
@@ -132,6 +132,9 @@ def adminNavRevise(request):
         if method == '5':
             models.ArticleSystem.objects.filter(id=name).delete()
             return HttpResponseRedirect('/admin/articlesy/')
+        if method == '4':
+            models.Article.objects.filter(id=name).delete()
+            return HttpResponseRedirect('/admin/rearticles/?n=&m=&page=1')
         if method == '3':
             models.Section.objects.filter(id=name).delete()
             return HttpResponseRedirect('/admin/navset/')
@@ -168,6 +171,7 @@ def adminArticleSy(request):
             models.ArticleSystem.objects.filter(id=key).update(name=name)
     return render(request, 'blogadmin/articlesy.html', dic)
 
+
 @permission_required('admin.add_logentry', login_url='/accounts/login/')
 def adminTimeMess(request):
     dic = {'title': '时间杂记'}
@@ -182,3 +186,55 @@ def adminTimeMess(request):
             writer = str(request.user)
             models.TimeMess.objects.create(body=body, writer=writer)
     return render(request, 'blogadmin/timebox.html', dic)
+
+
+@permission_required('admin.add_logentry', login_url='/accounts/login/')
+def adminhomeimage(request):
+    dic = {'title': '轮播图'}
+    getsetting(dic)
+    if request.method == 'POST':
+        dic['HOME_IMAGE_1'] = request.POST['HOME_IMAGE_1']
+        dic['HOME_IMAGE_2'] = request.POST['HOME_IMAGE_2']
+        dic['HOME_IMAGE_3'] = request.POST['HOME_IMAGE_3']
+        dic['HOME_IMAGE_TITLE_1'] = request.POST['HOME_IMAGE_TITLE_1']
+        dic['HOME_IMAGE_TITLE_2'] = request.POST['HOME_IMAGE_TITLE_2']
+        dic['HOME_IMAGE_TITLE_3'] = request.POST['HOME_IMAGE_TITLE_3']
+        dic['HOME_IMAGE_ADD_1'] = request.POST['HOME_IMAGE_ADD_1']
+        dic['HOME_IMAGE_ADD_2'] = request.POST['HOME_IMAGE_ADD_2']
+        dic['HOME_IMAGE_ADD_3'] = request.POST['HOME_IMAGE_ADD_3']
+        writeSet(dic)
+    return render(request, 'blogadmin/homeimage.html', dic)
+
+
+@permission_required('admin.add_logentry', login_url='/accounts/login/')
+def adminrearticles(request):
+    dic = {'title': '文章管理', 'navs': models.Section.objects.all()}
+    getsetting(dic)
+    n = request.GET['n']
+    m = request.GET['m']
+    dic['n'] = n
+    dic['m'] = m
+    page = request.GET['page']
+    page = int(page)
+    left = 10 * page - 10
+    right = 10 * page
+    dic['articles'] = models.Article.objects.filter(section__contains=m).filter(title__contains=n).order_by('-id')[
+                      left:right]
+    dic['datas'] = models.Article.objects.filter(section__contains=m).filter(title__contains=n)
+    lis = []
+    for i in range(int(math.ceil(len(dic['datas']) / 10))):
+        lis.append(i + 1)
+    dic['pages'] = lis
+    n = 2
+    if len(lis) > 0:
+        if page - lis[0] < 2: n = page - lis[0]
+        if abs(page - lis[-1]) == 0: n = 4
+        if page - lis[-1] == -1: n = 3
+        dic['pagenumr'] = lis[-1]
+        dic['pagenum'] = page - n
+        dic['pagenumk'] = page
+    else:
+        dic['pagenumr'] = 1
+        dic['pagenum'] = 1
+        dic['pagenumk'] = 1
+    return render(request, 'blogadmin/rearticles.html', dic)

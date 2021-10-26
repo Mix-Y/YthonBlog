@@ -21,7 +21,9 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('navs/', views.navs, name='navs'),
     path('write/', views.write, name='write'),
+    path('rewrite/', views.rewrite, name='rewrite'),
     path('article/', views.article, name='article'),
     path('search/', views.search, name='search'),
     path('mess/', views.mess, name='mess'),
+    path('about/', views.about, name='about'),
 ]

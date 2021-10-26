@@ -1,0 +1,45 @@
+{% extends 'article/base.html' %}
+
+{% block content %}
+
+<div class="articlepage">
+    <div class="navimage">
+        <div style="width: 100%;height: 100%;">
+        <img class="navbackimage" src="/static/image/about.jpg" style="width: 100%;height: 100%;z-index: 10;object-fit: cover;"></div>
+        <div class="navimages">
+            <p class="navimagesfont"><b>关于</b></p>
+            <p class="navimagesfont2">这是一些关于我的信息</p>
+        </div>
+    </div>
+    <div class="articlepagebody">
+
+        <div class="articlepagebody2">
+            <div class="artclebottom">
+                <div class="remark" style="margin-top: 100px;">
+                    <div class="adminline"></div>
+                    <h class="remarktitle2"><b>我</b></h>
+                    <p class="remarktitle" style="margin-top: 30px;color: rgb(78, 78, 78);line-height: 45px;"><i>Hi！我是Ython，一个00后的苦逼崽子，一个死宅男，没有女朋友的疼爱，孤苦伶仃一个人，我只是一个二本学渣，甚至专业都不是计算机专业，但是我真的热爱计算机，苦于转专业失败，提起了自学的兴趣，这是我的第二版博客，它还是有着很多问题，但我相信再之后的迭代里，它一定能更好，希望您能不要取笑它，谁又没经历过菜鸟时代，如果你有什么建议，可以去留言版块留言，当然你也可以通过下方的联系方式来联系我。</i></p>
+                    <div class="adminline"></div>
+                    <h class="remarktitle2"><b>联系方式</b></h><br>
+                    <div style="display: flex;margin-top: 50px;">
+                        <img src="/static/image/weixin.jpg" alt="" width="300px" height="300px">
+                        <p class="remarktitle" style="margin-left: 100px;color: rgb(78, 78, 78);line-height: 45px;margin-top: 50px;">QQ：3150718511 <br>微信：hhs12347 <br>email：13018265579@163.com<br>3150718511@qq.com</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+        {% include 'blog/bottom2.html' %}
+    </div>
+    
+</div>
+
+
+
+
+
+{% endblock %}
