@@ -40,6 +40,7 @@ def truefalse(StrData):
 @permission_required('admin.add_logentry', login_url='/accounts/login/')
 def blogadmin(request):
     dic = {'title': '管理后台'}
+    dic['']
     return render(request, 'blogadmin/home.html', dic)
 
 
@@ -107,7 +108,7 @@ def adminNavSet(request):
         desc = request.POST['navdesc']
         key = request.POST['key']
         models.Section.objects.create(name=name, TreeSum=0, describe=desc, image=img, parent=key)
-        if key != 0:
+        if key != '0':
             f = models.Section.objects.get(id=key)
             n = f.TreeSum + 1
             models.Section.objects.filter(id=key).update(TreeSum=n)
