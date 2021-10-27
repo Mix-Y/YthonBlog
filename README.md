@@ -1,8 +1,11 @@
 # YthonBlog
-YthonBlog基于Django框架开发的轻型博客                
-#演示地址             
-演示地址：http://www.ython.top/                
-#运行：    
+YthonBlog基于Django框架开发的轻型博客    
+
+# 演示地址             
+演示地址：http://www.ython.top/       
+
+# 运行：   
+
 按顺序           
 python3 manage.py makemigrations       
 python3 manage.py migrate       
